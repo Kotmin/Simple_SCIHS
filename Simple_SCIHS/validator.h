@@ -6,7 +6,7 @@
 #include<iterator>
 #include<string>
 #include<regex>
-#include<iostream>
+#include<vector>
 
 class Validator
 {
@@ -29,6 +29,16 @@ public:
     static std::string trim(const std::string &s){
         return ltrim(rtrim(s));
     }
+
+    static bool validate_name(std::string name);
+    static bool validate_surname(std::string surname);
+    //placeholder for validate_address
+    static bool validate_pesel(std::string pesel);
+    static bool validate_index(std::string index);
+    static bool validate_email(std::string email);
+    static bool validate_phone_number(std::string phone_num);
+
+
 
 };
 

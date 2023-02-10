@@ -14,8 +14,7 @@ int main(int argc, char *argv[])
 
     std::tuple<std::string,std::string,std::string,std::string,std::string> tup1;
     tup1 = std::make_tuple("Downing st.","3a","14","20-508","Lubdyn");
-    Student s1("Adam Karol","Wielysz - Abroam",tup1,"02251305359","554421","mymail@mejl.pl","+48 124873556");
+    Student s1("Adam2","Wielysz - Abroam",tup1,"02251305359","554421","mymail@mejl.pl","+48 124873556");
 
     return 1;
-//    return a.exec();
 }
