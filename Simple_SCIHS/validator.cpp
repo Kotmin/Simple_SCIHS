@@ -57,3 +57,15 @@ bool Validator::validate_email(std::string email)
 
     throw "\n Wprowadzono niepoprawny email\n";
 }
+
+bool Validator::validate_phone_number(std::string phone_num)
+{
+
+    std::regex reg_ex_ph_number("[\\+]{0,1}[0-9]{9,16}$");
+    // tutaj mamy mocna odskocznie od wymagan projektowych, 9 + prefiks ktory technicznie moze byc dluzszy i opcjonalnym zdaniem
+    //+ ktory z duza dola prawdopodobienstwa czasami mozna pominac (przynajmniej od strony ui)
+    phone_num = Validator::trim(phone_num);
+
+    if(regex_match(phone_num,reg_ex_ph_number)) return true;
+    throw "\n Wprowadzono niepoprawny numer telefonu \n";
+}

@@ -30,9 +30,11 @@ Student::Student(std::string name, std::string surname, std::tuple<std::string, 
 
 
 
-// miescje na walidacje wnetrza krotki
+    // miescje na walidacje wnetrza krotki
 
 
 
     // sprawdzanie kontenera
+
+
 }

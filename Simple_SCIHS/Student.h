@@ -31,6 +31,23 @@ public:
     Student(std::string name,std::string surname,
             std::tuple<std::string,std::string,std::string,std::string,std::string> address_street_house_nr_ap_nr_p_code_city
             ,std::string pesel,std::string index, std::string email,std::string phone_num);
+
+    Student(std::string name,std::string surname,
+            std::tuple<std::string,std::string,std::string,std::string,std::string> address_street_house_nr_ap_nr_p_code_city
+            ,std::string pesel,std::string index, std::string email,std::string phone_num,std::vector<float> grades);
+
+    template<typename T>
+    void show_grades(std::vector<T> const &container);
 };
+
+template<typename T>
+void Student::show_grades(std::vector<T> const &container)
+{
+    typename std::vector<T>::const_iterator it;
+    for(it = container.begin();it!=container.end();it++)
+            std::cout<<*it<<" ";
+    std::cout<<std::endl;
+
+}
 
 #endif // STUDENT_H
