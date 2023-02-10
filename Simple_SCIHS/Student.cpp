@@ -29,17 +29,16 @@ Student::Student(std::string name, std::string surname, std::tuple<std::string, 
     // tj z wyciagnieciem konkretnej daty urodzenia moglibysmy trzeba rozwazyc zamiane tego na dokladna date
     // znaczy sie tylko wchodzac w to jak bardzo chcemy porownywac studentow pod wzgledem wieku, rok, czy dokladniej
 
-    std::string help =pesel.substr(2,3);
-    int decade = (int)pesel[0]*10 + (int)pesel[1];
-    int month = (int)pesel[2]*10 + (int)pesel[3];
-    int day = (int)pesel[4]*10 + (int)pesel[5];
-    //zakladamy ze wszystkie miesiace moga miec 31 dni i system bedzie dzialal dla ludzi ur w latach 1900-2099
+    int decade = std::stoi(pesel.substr(0,2));
+    int month = std::stoi(pesel.substr(2,2));
+    int day = std::stoi(pesel.substr(4,2));
 
-    if(regex_match(pesel,reg_ex_pesel) && (month < 33) && (day<31)){
+    //zakladamy ze wszystkie miesiace moga miec 31 dni i system bedzie dzialal dla ludzi ur w latach 1900-2099
+    if(regex_match(pesel,reg_ex_pesel) && (month < 33) && (day<32)){
         std::cout<<"PESEL poprawny : "<<pesel<<"\n";
         this->_pesel = pesel;
     }
-    else{std::cout<<"\n PESEL niepoprawne : "<<pesel;}
+    else{std::cout<<"\n PESEL niepoprawne : "<<pesel<<"\n";}
 
 
 
