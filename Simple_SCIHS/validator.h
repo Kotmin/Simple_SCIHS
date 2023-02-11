@@ -55,7 +55,7 @@ bool Validator::validate_grades(const std::vector<T> &container)
     typename std::vector<T>::const_iterator it;
     for(it = container.begin();it!=container.end();it++)
         if(!Validator::validate_grade(*it))
-            return false;
+            throw "Podany kontener nie posiada wartosci zgodnych ze zdefiniowana skala\n";
     return true;
 
 }
@@ -63,7 +63,9 @@ bool Validator::validate_grades(const std::vector<T> &container)
 template<typename T>
 bool Validator::validate_grade(T grade) // to jest delikatnie naciagane
 {
-    return (grade==2.0f)||(grade==3.0f)||(grade==3.5f)||(grade==4.0f)||(grade==4.5f)||(grade==5.0f);
+    if ((grade==2.0f)||(grade==3.0f)||(grade==3.5f)||(grade==4.0f)||(grade==4.5f)||(grade==5.0f))
+        return true;
+    throw "\nProba wprowadzenia oceny spoza zdefiniowanych [2.0,3.0,3.5,4.0,4.5,5.0]\n";
 }
 
 

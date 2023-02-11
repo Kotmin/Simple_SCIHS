@@ -26,13 +26,19 @@ int main(int argc, char *argv[])
 //    Student s2("Tadeusz","Ramen",tup1,"02251305359","554421","mymail@mejl.pl","+48 124873556",ocenki);
     s1.show_grades(ocenki);
 
-    std::cout<<"\n"<<Validator::validate_grades(ocenki)<<std::endl;
-    ocenki.push_back(3.51);
-    std::cout<<"\n"<<Validator::validate_grades(ocenki)<<std::endl;
-    ocenki.push_back(3.6);
-    std::cout<<"\n"<<Validator::validate_grades(ocenki)<<std::endl;
+//    std::cout<<"\n"<<Validator::validate_grades(ocenki)<<std::endl;
+//    ocenki.push_back(3.51);
+//    std::cout<<"\n"<<Validator::validate_grades(ocenki)<<std::endl;
+//    ocenki.push_back(3.6);
+//    std::cout<<"\n"<<Validator::validate_grades(ocenki)<<std::endl;
 
     // dokladnie bedzie trzeba lab6 przejrzec i skrypcik
 
+    Student s3("Tobiasz","Kanoe",tup1,"04311305359","554421","mymail@mejl.pl","+48 124873556");
+    s3.add_grade(5);
+    s3.add_grade(4.5);
+    s3.add_grade(3);
+    s3.add_grade(3.7);
+    s3.show_grades();
     return 1;
 }

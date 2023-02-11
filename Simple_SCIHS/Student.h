@@ -20,7 +20,9 @@ private:
     std::string _email;
     std::string _phone_number;
 //    std::enum grades {2.0,3.0,3.5}; //to tak ladnie nie zadziala
+
     std::vector<float> _grades;
+
 
 
     // wyjasniajac dlaczego to wszystko jest typu string, nr_domu, mieszkania miewaja w sobie magiczne literki typu 3a,
@@ -35,10 +37,27 @@ public:
     Student(std::string name,std::string surname,
             std::tuple<std::string,std::string,std::string,std::string,std::string> address_street_house_nr_ap_nr_p_code_city
             ,std::string pesel,std::string index, std::string email,std::string phone_num,std::vector<float> grades);
-
+    void show_grades();
     template<typename T>
     void show_grades(std::vector<T> const &container);
+
+    template<typename T>
+    bool add_grade(const T grade);
 };
+
+template<typename T>
+bool Student::add_grade(const T grade)
+{
+    try {
+        if(Validator::validate_grade(grade))
+            this->_grades.push_back(grade);
+
+    }  catch (const char* msg) {
+        std::cerr << msg << std::endl;
+    }
+
+
+}
 
 template<typename T>
 void Student::show_grades(std::vector<T> const &container)

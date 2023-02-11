@@ -34,7 +34,16 @@ Student::Student(std::string name, std::string surname, std::tuple<std::string, 
 
 
 
-    // sprawdzanie kontenera
 
+    //mozna by rozwazyc czy uzywanie asserta nie byloby tutaj wygodniejsze
+
+
+}
+
+void Student::show_grades()
+{
+    for(auto& i: _grades)
+        std::cout<<i<<" ";
+    std::cout<<std::endl;
 
 }
