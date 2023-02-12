@@ -72,30 +72,45 @@ bool Validator::validate_phone_number(std::string phone_num)
 
 std::string Validator::extract_date_from_pesel(std::string pesel)
 { //02251305359
-    std::string output ="";
-    int decade = std::stoi(pesel.substr(0,2));
-    int month = std::stoi(pesel.substr(2,2));
-    int day = std::stoi(pesel.substr(4,2));
-    int century = 19;
-    if(day<10)
-        output+="0";
-    output+=std::to_string(day);
-    output+=".";
-//    std::cout<<"After day "<<output<<std::endl;
-    if(month>12){
-        month-=20;
-        century=20;
+    try {
+        Validator::validate_pesel(pesel);
+
+        std::string output ="";
+
+        int decade = std::stoi(pesel.substr(0,2));
+        int month = std::stoi(pesel.substr(2,2));
+        int day = std::stoi(pesel.substr(4,2));
+        int century = 19;
+
+        if(day<10)
+            output+="0";
+        output+=std::to_string(day);
+        output+=".";
+
+        if(month>12){
+            month-=20;
+            century=20;
+        }
+
+        if(month<12)
+            output+="0";
+
+        output+=std::to_string(month);
+        output+=".";
+        output+=std::to_string(century);
+
+        if(decade<10)
+            output+="0";
+
+        output+=std::to_string(decade);
+
+
+        return output; //"dd.mm.yyyy"
+
+
+    }  catch (const char* msg) {
+        std::cerr << msg << std::endl;
     }
-    if(month<12)
-        output+="0";
-    output+=std::to_string(month);
-    output+=".";
-//    std::cout<<"After month "<<output<<std::endl;
-    output+=std::to_string(century);
-    if(decade<10)
-        output+="0";
-    output+=std::to_string(decade);
 
-
-    return output; //"dd.mm.yyyy"
+    return "";
 }

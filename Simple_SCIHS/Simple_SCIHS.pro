@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         Student.cpp \
         main.cpp \
+        studentcatalog.cpp \
         validator.cpp
 
 # Default rules for deployment.
@@ -26,4 +27,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     Student.h \
+    studentcatalog.h \
     validator.h

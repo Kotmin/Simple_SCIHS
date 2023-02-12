@@ -54,9 +54,11 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../Simple_SCIHS/Student.cpp \
 		../Simple_SCIHS/main.cpp \
+		../Simple_SCIHS/studentcatalog.cpp \
 		../Simple_SCIHS/validator.cpp 
 OBJECTS       = Student.o \
 		main.o \
+		studentcatalog.o \
 		validator.o
 DIST          = /../lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/common/unix.conf \
@@ -134,8 +136,10 @@ DIST          = /../lib64/qt5/mkspecs/features/spec_pre.prf \
 		/../lib64/qt5/mkspecs/features/yacc.prf \
 		/../lib64/qt5/mkspecs/features/lex.prf \
 		../Simple_SCIHS/Simple_SCIHS.pro ../Simple_SCIHS/Student.h \
+		../Simple_SCIHS/studentcatalog.h \
 		../Simple_SCIHS/validator.h ../Simple_SCIHS/Student.cpp \
 		../Simple_SCIHS/main.cpp \
+		../Simple_SCIHS/studentcatalog.cpp \
 		../Simple_SCIHS/validator.cpp
 QMAKE_TARGET  = Simple_SCIHS
 DESTDIR       = 
@@ -316,8 +320,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /../lib64/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Simple_SCIHS/Student.h ../Simple_SCIHS/validator.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/main.cpp ../Simple_SCIHS/validator.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Simple_SCIHS/Student.h ../Simple_SCIHS/studentcatalog.h ../Simple_SCIHS/validator.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/main.cpp ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/validator.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -365,11 +369,19 @@ compiler_clean: compiler_moc_predefs_clean
 
 ####### Compile
 
-Student.o: ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/Student.h
+Student.o: ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/Student.h \
+		../Simple_SCIHS/validator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Student.o ../Simple_SCIHS/Student.cpp
 
-main.o: ../Simple_SCIHS/main.cpp ../Simple_SCIHS/Student.h
+main.o: ../Simple_SCIHS/main.cpp ../Simple_SCIHS/Student.h \
+		../Simple_SCIHS/validator.h \
+		../Simple_SCIHS/studentcatalog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Simple_SCIHS/main.cpp
+
+studentcatalog.o: ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/studentcatalog.h \
+		../Simple_SCIHS/Student.h \
+		../Simple_SCIHS/validator.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o studentcatalog.o ../Simple_SCIHS/studentcatalog.cpp
 
 validator.o: ../Simple_SCIHS/validator.cpp ../Simple_SCIHS/validator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o validator.o ../Simple_SCIHS/validator.cpp

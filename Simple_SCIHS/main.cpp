@@ -1,6 +1,7 @@
 #include <QCoreApplication>
 #include<iostream>
 #include "Student.h"
+#include "studentcatalog.h"
 
 #include<tuple> //just for tests
 
@@ -42,6 +43,9 @@ int main(int argc, char *argv[])
     s3.show_grades();
 
     std::cout<<Validator::extract_date_from_pesel("02251305359")<<std::endl;
+
+    StudentCatalog ca1();
+
 
     return 1;
 }
