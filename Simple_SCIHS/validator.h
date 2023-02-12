@@ -45,6 +45,8 @@ public:
     template<typename T>
     static bool validate_grades(std::vector<T> const &container);
 
+    static std::string extract_date_from_pesel(std::string pesel); //return format "dd.mm.yyyy"
+
 
 
 };

@@ -40,5 +40,8 @@ int main(int argc, char *argv[])
     s3.add_grade(3);
     s3.add_grade(3.7);
     s3.show_grades();
+
+    std::cout<<Validator::extract_date_from_pesel("02251305359")<<std::endl;
+
     return 1;
 }
