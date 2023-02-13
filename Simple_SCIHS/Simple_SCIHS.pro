@@ -19,6 +19,7 @@ INCLUDEPATH += "/home/kotmin/coding/libs/include/"
 SOURCES += \
         Student.cpp \
         main.cpp \
+        older.cpp \
         studentcatalog.cpp \
         unique_index.cpp \
         validator.cpp
@@ -30,6 +31,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     Student.h \
+    older.h \
     studentcatalog.h \
     unique_index.h \
     validator.h

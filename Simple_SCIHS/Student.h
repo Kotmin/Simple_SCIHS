@@ -82,6 +82,7 @@ public:
     std::vector<float> const &grades() const {return _grades;}
 
     float calculate_the_avg();
+    std::string generate_email();
 
 
 //    friend QDataStream& operator<<(QDataStream &stream, Student &student){

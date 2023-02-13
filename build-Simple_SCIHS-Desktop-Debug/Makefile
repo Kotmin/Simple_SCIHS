@@ -54,11 +54,13 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../Simple_SCIHS/Student.cpp \
 		../Simple_SCIHS/main.cpp \
+		../Simple_SCIHS/older.cpp \
 		../Simple_SCIHS/studentcatalog.cpp \
 		../Simple_SCIHS/unique_index.cpp \
 		../Simple_SCIHS/validator.cpp 
 OBJECTS       = Student.o \
 		main.o \
+		older.o \
 		studentcatalog.o \
 		unique_index.o \
 		validator.o
@@ -138,10 +140,12 @@ DIST          = /../lib64/qt5/mkspecs/features/spec_pre.prf \
 		/../lib64/qt5/mkspecs/features/yacc.prf \
 		/../lib64/qt5/mkspecs/features/lex.prf \
 		../Simple_SCIHS/Simple_SCIHS.pro ../Simple_SCIHS/Student.h \
+		../Simple_SCIHS/older.h \
 		../Simple_SCIHS/studentcatalog.h \
 		../Simple_SCIHS/unique_index.h \
 		../Simple_SCIHS/validator.h ../Simple_SCIHS/Student.cpp \
 		../Simple_SCIHS/main.cpp \
+		../Simple_SCIHS/older.cpp \
 		../Simple_SCIHS/studentcatalog.cpp \
 		../Simple_SCIHS/unique_index.cpp \
 		../Simple_SCIHS/validator.cpp
@@ -324,8 +328,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /../lib64/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Simple_SCIHS/Student.h ../Simple_SCIHS/studentcatalog.h ../Simple_SCIHS/unique_index.h ../Simple_SCIHS/validator.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/main.cpp ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/unique_index.cpp ../Simple_SCIHS/validator.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Simple_SCIHS/Student.h ../Simple_SCIHS/older.h ../Simple_SCIHS/studentcatalog.h ../Simple_SCIHS/unique_index.h ../Simple_SCIHS/validator.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/main.cpp ../Simple_SCIHS/older.cpp ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/unique_index.cpp ../Simple_SCIHS/validator.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1248,8 +1252,150 @@ main.o: ../Simple_SCIHS/main.cpp ../Simple_SCIHS/Student.h \
 		../../coding/libs/include/boost/range/algorithm/max_element.hpp \
 		../../coding/libs/include/boost/range/detail/less.hpp \
 		../../coding/libs/include/boost/range/algorithm/min_element.hpp \
-		../../coding/libs/include/boost/range/algorithm/permutation.hpp
+		../../coding/libs/include/boost/range/algorithm/permutation.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/iteration/for_each.hpp \
+		../../coding/libs/include/boost/fusion/support/config.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/iteration/detail/for_each.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/begin.hpp \
+		../../coding/libs/include/boost/mpl/empty_base.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic_fwd.hpp \
+		../../coding/libs/include/boost/fusion/support/is_sequence.hpp \
+		../../coding/libs/include/boost/fusion/support/sequence_base.hpp \
+		../../coding/libs/include/boost/fusion/support/tag_of.hpp \
+		../../coding/libs/include/boost/fusion/support/tag_of_fwd.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/is_mpl_sequence.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/is_native_fusion_sequence.hpp \
+		../../coding/libs/include/boost/fusion/support/is_segmented.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/detail/segmented_begin.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/detail/segmented_begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/cons_fwd.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/detail/segmented_end_impl.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/segmented_fold_until_impl.hpp \
+		../../coding/libs/include/boost/utility/result_of.hpp \
+		../../coding/libs/include/boost/utility/detail/result_of_variadic.hpp \
+		../../coding/libs/include/boost/utility/detail/result_of_iterate.hpp \
+		../../coding/libs/include/boost/fusion/support/void.hpp \
+		../../coding/libs/include/boost/fusion/iterator/equal_to.hpp \
+		../../coding/libs/include/boost/fusion/support/is_iterator.hpp \
+		../../coding/libs/include/boost/fusion/iterator/deref.hpp \
+		../../coding/libs/include/boost/fusion/support/iterator_base.hpp \
+		../../coding/libs/include/boost/fusion/iterator/next.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/segments.hpp \
+		../../coding/libs/include/boost/fusion/iterator/segmented_iterator.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/segmented_iterator.hpp \
+		../../coding/libs/include/boost/fusion/iterator/iterator_facade.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/advance.hpp \
+		../../coding/libs/include/boost/fusion/iterator/prior.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/distance.hpp \
+		../../coding/libs/include/boost/fusion/support/category_of.hpp \
+		../../coding/libs/include/boost/fusion/iterator/deref_data.hpp \
+		../../coding/libs/include/boost/fusion/iterator/key_of.hpp \
+		../../coding/libs/include/boost/fusion/iterator/value_of.hpp \
+		../../coding/libs/include/boost/fusion/iterator/value_of_data.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/segmented_equal_to.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/segmented_next_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/cons.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/enabler.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/access.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/end.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/detail/segmented_end.hpp \
+		../../coding/libs/include/boost/fusion/container/list/nil.hpp \
+		../../coding/libs/include/boost/fusion/container/list/cons_iterator.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/deref_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/next_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/value_of_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/equal_to_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/list_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/list_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/limits.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/pp_round.hpp \
+		../../coding/libs/include/boost/preprocessor/comparison/less.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list10_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list20_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list30_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list40_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list50_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/end_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/at_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/value_at_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/empty_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/iterator_range.hpp \
+		../../coding/libs/include/boost/fusion/iterator/distance.hpp \
+		../../coding/libs/include/boost/fusion/iterator/mpl/convert_iterator.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/end_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/at_impl.hpp \
+		../../coding/libs/include/boost/fusion/iterator/advance.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/size_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/value_at_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/is_segmented_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/segments_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/segmented_iterator_range.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/transformation/push_back.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/as_fusion_element.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/joint_view.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/joint_view_fwd.hpp \
+		../../coding/libs/include/boost/fusion/support/is_view.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/size.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/detail/segmented_size.hpp \
+		../../coding/libs/include/boost/mpl/plus.hpp \
+		../../coding/libs/include/boost/mpl/aux_/arithmetic_op.hpp \
+		../../coding/libs/include/boost/mpl/aux_/largest_int.hpp \
+		../../coding/libs/include/boost/mpl/size_t.hpp \
+		../../coding/libs/include/boost/mpl/size_t_fwd.hpp \
+		../../coding/libs/include/boost/fusion/mpl/begin.hpp \
+		../../coding/libs/include/boost/fusion/adapted/mpl/detail/begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/adapted/mpl/mpl_iterator.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/mpl_iterator_category.hpp \
+		../../coding/libs/include/boost/mpl/begin.hpp \
+		../../coding/libs/include/boost/fusion/iterator/mpl/fusion_iterator.hpp \
+		../../coding/libs/include/boost/fusion/mpl/end.hpp \
+		../../coding/libs/include/boost/fusion/adapted/mpl/detail/end_impl.hpp \
+		../../coding/libs/include/boost/mpl/end.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/joint_view_iterator.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/deref_impl.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/adapt_deref_traits.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/next_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/value_of_impl.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/adapt_value_traits.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/deref_data_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/value_of_data_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/key_of_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/end_impl.hpp \
+		../../coding/libs/include/boost/mpl/inherit.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/single_view.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/single_view_iterator.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/deref_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/next_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/prior_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/advance_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/distance_impl.hpp \
+		../../coding/libs/include/boost/mpl/minus.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/equal_to_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/value_of_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/at_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/end_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/size_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/value_at_impl.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/value_at.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/transformation/push_front.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/reverse_cons.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/segment_sequence.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/empty.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/iteration/detail/segmented_for_each.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/iteration/for_each_fwd.hpp \
+		../../coding/libs/include/boost/fusion/support/segmented_fold_until.hpp \
+		../../coding/libs/include/boost/fusion/include/for_each.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Simple_SCIHS/main.cpp
+
+older.o: ../Simple_SCIHS/older.cpp ../Simple_SCIHS/older.h \
+		../Simple_SCIHS/validator.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o older.o ../Simple_SCIHS/older.cpp
 
 studentcatalog.o: ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/studentcatalog.h \
 		../Simple_SCIHS/Student.h \
@@ -2122,7 +2268,145 @@ studentcatalog.o: ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/studentcata
 		../../coding/libs/include/boost/range/algorithm/max_element.hpp \
 		../../coding/libs/include/boost/range/detail/less.hpp \
 		../../coding/libs/include/boost/range/algorithm/min_element.hpp \
-		../../coding/libs/include/boost/range/algorithm/permutation.hpp
+		../../coding/libs/include/boost/range/algorithm/permutation.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/iteration/for_each.hpp \
+		../../coding/libs/include/boost/fusion/support/config.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/iteration/detail/for_each.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/begin.hpp \
+		../../coding/libs/include/boost/mpl/empty_base.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic_fwd.hpp \
+		../../coding/libs/include/boost/fusion/support/is_sequence.hpp \
+		../../coding/libs/include/boost/fusion/support/sequence_base.hpp \
+		../../coding/libs/include/boost/fusion/support/tag_of.hpp \
+		../../coding/libs/include/boost/fusion/support/tag_of_fwd.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/is_mpl_sequence.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/is_native_fusion_sequence.hpp \
+		../../coding/libs/include/boost/fusion/support/is_segmented.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/detail/segmented_begin.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/detail/segmented_begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/cons_fwd.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/detail/segmented_end_impl.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/segmented_fold_until_impl.hpp \
+		../../coding/libs/include/boost/utility/result_of.hpp \
+		../../coding/libs/include/boost/utility/detail/result_of_variadic.hpp \
+		../../coding/libs/include/boost/utility/detail/result_of_iterate.hpp \
+		../../coding/libs/include/boost/fusion/support/void.hpp \
+		../../coding/libs/include/boost/fusion/iterator/equal_to.hpp \
+		../../coding/libs/include/boost/fusion/support/is_iterator.hpp \
+		../../coding/libs/include/boost/fusion/iterator/deref.hpp \
+		../../coding/libs/include/boost/fusion/support/iterator_base.hpp \
+		../../coding/libs/include/boost/fusion/iterator/next.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/segments.hpp \
+		../../coding/libs/include/boost/fusion/iterator/segmented_iterator.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/segmented_iterator.hpp \
+		../../coding/libs/include/boost/fusion/iterator/iterator_facade.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/advance.hpp \
+		../../coding/libs/include/boost/fusion/iterator/prior.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/distance.hpp \
+		../../coding/libs/include/boost/fusion/support/category_of.hpp \
+		../../coding/libs/include/boost/fusion/iterator/deref_data.hpp \
+		../../coding/libs/include/boost/fusion/iterator/key_of.hpp \
+		../../coding/libs/include/boost/fusion/iterator/value_of.hpp \
+		../../coding/libs/include/boost/fusion/iterator/value_of_data.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/segmented_equal_to.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/segmented_next_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/cons.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/enabler.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/access.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/end.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/detail/segmented_end.hpp \
+		../../coding/libs/include/boost/fusion/container/list/nil.hpp \
+		../../coding/libs/include/boost/fusion/container/list/cons_iterator.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/deref_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/next_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/value_of_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/equal_to_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/list_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/list_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/limits.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/pp_round.hpp \
+		../../coding/libs/include/boost/preprocessor/comparison/less.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list10_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list20_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list30_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list40_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/cpp03/preprocessed/list50_fwd.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/end_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/at_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/value_at_impl.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/empty_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/iterator_range.hpp \
+		../../coding/libs/include/boost/fusion/iterator/distance.hpp \
+		../../coding/libs/include/boost/fusion/iterator/mpl/convert_iterator.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/end_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/at_impl.hpp \
+		../../coding/libs/include/boost/fusion/iterator/advance.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/size_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/value_at_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/is_segmented_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/segments_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/iterator_range/detail/segmented_iterator_range.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/transformation/push_back.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/as_fusion_element.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/joint_view.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/joint_view_fwd.hpp \
+		../../coding/libs/include/boost/fusion/support/is_view.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/size.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/detail/segmented_size.hpp \
+		../../coding/libs/include/boost/mpl/plus.hpp \
+		../../coding/libs/include/boost/mpl/aux_/arithmetic_op.hpp \
+		../../coding/libs/include/boost/mpl/aux_/largest_int.hpp \
+		../../coding/libs/include/boost/mpl/size_t.hpp \
+		../../coding/libs/include/boost/mpl/size_t_fwd.hpp \
+		../../coding/libs/include/boost/fusion/mpl/begin.hpp \
+		../../coding/libs/include/boost/fusion/adapted/mpl/detail/begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/adapted/mpl/mpl_iterator.hpp \
+		../../coding/libs/include/boost/fusion/support/detail/mpl_iterator_category.hpp \
+		../../coding/libs/include/boost/mpl/begin.hpp \
+		../../coding/libs/include/boost/fusion/iterator/mpl/fusion_iterator.hpp \
+		../../coding/libs/include/boost/fusion/mpl/end.hpp \
+		../../coding/libs/include/boost/fusion/adapted/mpl/detail/end_impl.hpp \
+		../../coding/libs/include/boost/mpl/end.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/joint_view_iterator.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/deref_impl.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/adapt_deref_traits.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/next_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/value_of_impl.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/adapt_value_traits.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/deref_data_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/value_of_data_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/key_of_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/joint_view/detail/end_impl.hpp \
+		../../coding/libs/include/boost/mpl/inherit.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/single_view.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/single_view_iterator.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/deref_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/next_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/prior_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/advance_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/distance_impl.hpp \
+		../../coding/libs/include/boost/mpl/minus.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/equal_to_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/value_of_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/at_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/begin_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/end_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/size_impl.hpp \
+		../../coding/libs/include/boost/fusion/view/single_view/detail/value_at_impl.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/value_at.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/transformation/push_front.hpp \
+		../../coding/libs/include/boost/fusion/container/list/detail/reverse_cons.hpp \
+		../../coding/libs/include/boost/fusion/iterator/detail/segment_sequence.hpp \
+		../../coding/libs/include/boost/fusion/sequence/intrinsic/empty.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/iteration/detail/segmented_for_each.hpp \
+		../../coding/libs/include/boost/fusion/algorithm/iteration/for_each_fwd.hpp \
+		../../coding/libs/include/boost/fusion/support/segmented_fold_until.hpp \
+		../../coding/libs/include/boost/fusion/include/for_each.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o studentcatalog.o ../Simple_SCIHS/studentcatalog.cpp
 
 unique_index.o: ../Simple_SCIHS/unique_index.cpp ../Simple_SCIHS/unique_index.h
