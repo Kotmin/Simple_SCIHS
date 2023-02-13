@@ -80,3 +80,10 @@ void StudentCatalog::show()
 //    boost::fusion::for_each(catalog,show());
 
 }
+
+template<typename T>
+int StudentCatalog::count_students_with_avr_above_4_0()
+{
+    return 1;
+
+}

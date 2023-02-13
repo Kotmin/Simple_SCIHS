@@ -62,3 +62,8 @@ float Student::calculate_the_avg() // without wages, just simple avr value
     return sum/len_of_vector;
 
 }
+
+std::string Student::generate_email()
+{
+    return this->index() +"@pollub.edu.pl";
+}

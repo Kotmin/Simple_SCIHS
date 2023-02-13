@@ -64,10 +64,16 @@ public:
     void add_Student(Student s); // to check
 
     void remove_Student_by_index(std:: string index); // to check
-
-    int count_double_barreleed_surname(); //to check
 //    bool export_catalog(QString path);
+
     void show();
+    void show_all_ppl_from_speficic_town(); //empty
+    void show_all_students_btw_24_and_26_yor(); //empty
+
+// przydalaby sie funkcja ktora nam na biezaco zrobi slownik index - srednia, ze dynamicznie
+    template <typename T>
+    int count_students_with_avr_above_4_0(); //empty
+     int count_double_barreleed_surname(); //to check
 };
 
 #endif // STUDENTCATALOG_H
