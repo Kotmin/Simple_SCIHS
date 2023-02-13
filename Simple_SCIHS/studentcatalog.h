@@ -12,30 +12,29 @@
 #include<boost/bind.hpp>
 #include<boost/range/algorithm.hpp>
 
+typedef std::tuple<std::string,std::string,std::string,std::string,std::string> krotka;
 
-namespace bmi = boost::multi_index ;
+namespace bmi = boost::multi_index;
 
-//typedef bmi::multi_index_container<Student,bmi::indexed_by<
-//bmi::hashed_non_unique<bmi::const_mem_fun<Student,std::string,&Student::name>>,
-//bmi::hashed_non_unique<bmi::const_mem_fun<Student,std::string, &Student::surname>>,
-//bmi::hashed_non_unique<bmi::const_mem_fun<Student,std::string,&Student::name>>, //placeholder for address
-//bmi::hashed_unique<bmi::const_mem_fun<Student,std::string, &Student::pesel>>,
-//bmi::hashed_unique<bmi::const_mem_fun<Student,std::string, &Student::index>>,
-//bmi::hashed_unique<bmi::const_mem_fun<Student,std::string, &Student::email>>,
-//bmi::hashed_unique<bmi::const_mem_fun<Student,std::string, &Student::ph_number>>,
-//bmi::random_access<>
-//>> students_multi
+typedef bmi::multi_index_container<Student, bmi::indexed_by<
+    bmi::hashed_non_unique<bmi::const_mem_fun<Student, std::string, &Student::name>>,
+    bmi::hashed_non_unique<bmi::const_mem_fun<Student, std::string, &Student::surname>>,
+    bmi::hashed_non_unique<bmi::const_mem_fun<Student, krotka, &Student::address>>,
+    bmi::hashed_unique<bmi::const_mem_fun<Student, std::string, &Student::pesel>>,
+    bmi::hashed_unique<bmi::const_mem_fun<Student, std::string, &Student::index>>,
+    bmi::hashed_unique<bmi::const_mem_fun<Student, std::string, &Student::email>>,
+    bmi::hashed_unique<bmi::const_mem_fun<Student, std::string, &Student::ph_number>>,
+    bmi::random_access<>
+>> students_multi;
 
-typedef bmi::multi_index_container<Student,bmi::indexed_by<
-bmi::hashed_non_unique<Student,std::string, &Student::name>>
-
-//typedef students_multi::nth_index<0>::type name_type;
-//typedef students_multi::nth_index<1>::type surname_type;
-//typedef students_multi::nth_index<2>::type name_type;
-//typedef students_multi::nth_index<3>::type pesel_type;
-//typedef students_multi::nth_index<4>::type index_type;
-//typedef students_multi::nth_index<5>::type email_type;
-//typedef students_multi::nth_index<6>::type ph_number_type;
+typedef students_multi::nth_index<0>::type name_type;
+typedef students_multi::nth_index<1>::type surname_type;
+typedef students_multi::nth_index<2>::type address_type;
+typedef students_multi::nth_index<3>::type pesel_type;
+typedef students_multi::nth_index<4>::type index_type;
+typedef students_multi::nth_index<5>::type email_type;
+typedef students_multi::nth_index<6>::type ph_number_type;
+typedef students_multi::nth_index<7>::type random_type;
 
 
 

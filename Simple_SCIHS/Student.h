@@ -14,12 +14,14 @@
 
 #include "validator.h"
 
+typedef std::tuple<std::string,std::string,std::string,std::string,std::string> krotka;
+
 class Student
 {
 private:
     std::string _name;
     std::string _surname;
-    std::tuple<std::string,std::string,std::string,std::string,std::string> _addres;
+    krotka _address;
     std::string _pesel;
     std::string _index_nr;
     std::string _email;
@@ -50,30 +52,30 @@ public:
     bool add_grade(const T grade);
 
 
-    std::string name(){return this->_name;}
+    std::string name() const {return this->_name;}
 
 
-    std::string const surname(){return this->_surname;}
+    std::string surname() const {return this->_surname;}
 
 
-    std::string const address(){return "";}//_addres;} to do
+//    std::string address() const {return "";}//_addres;} to do
 
 
-    std::string const pesel(){return this->_pesel;}
+    std::string pesel() const {return this->_pesel;}
 
 
 
-    std::string  index() const {return this->_index_nr;}; // to do
+    std::string index() const {return this->_index_nr;}; // to do
     QString sindex(){return QString::fromStdString(index());};
 
 
-    std::string const email(){return this->_email;};
+    std::string email() const {return this->_email;};
 
 
-    std::string const ph_number(){return this->_phone_number;}
+    std::string ph_number() const {return this->_phone_number;}
 
 
-
+    krotka address() const {return this->_address;}
 
 
 //    friend QDataStream& operator<<(QDataStream &stream, Student &student){

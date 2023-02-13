@@ -10,7 +10,7 @@ Student::Student(std::string name, std::string surname, std::tuple<std::string, 
 
     try {
         if(Validator::validate_name(name))
-            this->_name = name;
+            this->_name= name;
         if(Validator::validate_surname(surname))
             this->_surname = surname;
         if(Validator::validate_pesel(pesel))

@@ -5,7 +5,8 @@
 
 #include<tuple> //just for tests
 
-int main(int argc, char *argv[])
+
+int main()
 {
 //    QCoreApplication a(argc, argv);
     std::cout<<"Hello\n";std::cout<<"Hello2\n";
@@ -47,5 +48,5 @@ int main(int argc, char *argv[])
     StudentCatalog ca1();
 
 
-    return 1;
+    return 0;
 }
