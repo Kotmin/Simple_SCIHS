@@ -44,6 +44,8 @@ public:
     Student(std::string name,std::string surname,
             std::tuple<std::string,std::string,std::string,std::string,std::string> address_street_house_nr_ap_nr_p_code_city
             ,std::string pesel,std::string index, std::string email,std::string phone_num,std::vector<float> grades);
+
+    void show() const;
     void show_grades();
     template<typename T>
     void show_grades(std::vector<T> const &container);
@@ -76,6 +78,8 @@ public:
 
 
     krotka address() const {return this->_address;}
+
+    std::vector<float> const &grades() const {return _grades;}
 
 
 //    friend QDataStream& operator<<(QDataStream &stream, Student &student){

@@ -40,6 +40,12 @@ Student::Student(std::string name, std::string surname, std::tuple<std::string, 
 
 }
 
+void Student::show() const
+{
+    std::cout<<this->index()<<" "<<this->name()<<" "<< this->surname()<<" "<<this->email()<<std::endl;
+
+}
+
 void Student::show_grades()
 {
     for(auto& i: _grades)

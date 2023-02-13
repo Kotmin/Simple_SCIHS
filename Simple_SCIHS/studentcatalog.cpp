@@ -16,3 +16,52 @@
 //    }
 
 //}
+
+//void StudentCatalog::add(std::string name, std::string surname, std::tuple<std::string, std::string, std::string, std::string, std::string> address_street_house_nr_ap_nr_p_code_city, std::string pesel, std::string index, std::string email, std::string phone_num, std::vector<float> grades)
+//{
+//    catalog.insert({name,surname,address_street_house_nr_ap_nr_p_code_city,pesel,index,email,phone_num,grades});
+//}
+
+void StudentCatalog::add(std::string name, std::string surname, std::tuple<std::string, std::string, std::string, std::string, std::string> address_street_house_nr_ap_nr_p_code_city, std::string pesel, std::string index, std::string email, std::string phone_num, std::vector<float> grades)
+{
+    name=Validator::rtrim(name);
+    surname=Validator::rtrim(surname);
+    phone_num = Validator::trim(phone_num);
+
+
+    try {
+        Validator::validate_name(name);
+        Validator::validate_surname(surname);
+        Validator::validate_pesel(pesel);
+        Validator::validate_index(index);
+        Validator::validate_email(email);
+        Validator::validate_phone_number(phone_num);
+
+        catalog.insert({name,surname,address_street_house_nr_ap_nr_p_code_city,pesel,index,email,phone_num,grades});
+
+    }  catch (const char* msg) {
+        std::cerr << msg << std::endl;
+    }
+
+}
+
+void StudentCatalog::add_Student(Student s)
+{
+    catalog.insert({s.name(),s.surname(),s.address(),s.pesel(),s.index(),s.email(),s.ph_number(),s.grades()});
+}
+
+void StudentCatalog::show()
+{
+    for(auto it = catalog.get<0>().begin(); it != catalog.get<0>().end();++it)
+    {
+        it->show();
+        std::cout<<"num\n";
+    }
+
+//    for(auto i=0; i != catalog.size();i++)
+//    {
+//        catalog.get<0>()[i].show();
+//    }
+//    boost::fusion::for_each(catalog,show());
+
+}

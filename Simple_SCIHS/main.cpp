@@ -18,7 +18,7 @@ int main()
 
     std::tuple<std::string,std::string,std::string,std::string,std::string> tup1;
     tup1 = std::make_tuple("Downing st.","3a","14","20-508","Lubdyn");
-    Student s1("Adam2","Wielysz - Abroam",tup1,"02251305359","554421","mymail@mejl.pl","+48 124873556");
+    Student s1("Adam","Wielysz - Abroam",tup1,"02251305359","554421","mymail@mejl.pl","+48 124873556");
 
     std::vector<float> ocenki;
     ocenki.push_back(5.0);
@@ -45,8 +45,15 @@ int main()
 
     std::cout<<Validator::extract_date_from_pesel("02251305359")<<std::endl;
 
-    StudentCatalog ca1();
+    Student s4("Wilhelm","Zdobywca",tup1,"92121305359","554521","hab@mejl.pl","+48 124873556");
+    StudentCatalog cat;
 
+    cat.add_Student(s1);
+    cat.add_Student(s3);
+    cat.add_Student(s4);
+    cat.add("Wieso","Szabrownik",tup1,"81121305359","564521","bemowo@mejl.pl","+48 124873555",ocenki);
+
+    cat.show();
 
     return 0;
 }

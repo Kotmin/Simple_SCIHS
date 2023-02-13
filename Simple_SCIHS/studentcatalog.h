@@ -12,6 +12,10 @@
 #include<boost/bind.hpp>
 #include<boost/range/algorithm.hpp>
 
+
+#include<boost/fusion/algorithm/iteration/for_each.hpp>
+#include<boost/fusion/include/for_each.hpp>
+
 typedef std::tuple<std::string,std::string,std::string,std::string,std::string> krotka;
 
 namespace bmi = boost::multi_index;
@@ -42,7 +46,7 @@ class StudentCatalog
 {
 private:
 
-
+    students_multi catalog;
     //read only access vector.at(index), shall be faster
     // qSort(vec.begin(),vec.end(), Func()_; // works on org
     // let's concider separate container named query to hold result of spefic function.
@@ -52,11 +56,14 @@ private:
     //how to make accesors / gain acces into class.
 //    students_multi students;
 public:
-    StudentCatalog();
-    QVector<Student> catalog;
-
-    bool add_Student(Student s);
+    StudentCatalog(){};
+//    QVector<Student> catalog;
+    void add(std::string name,std::string surname,
+             std::tuple<std::string,std::string,std::string,std::string,std::string> address_street_house_nr_ap_nr_p_code_city
+             ,std::string pesel,std::string index, std::string email,std::string phone_num,std::vector<float> grades);
+    void add_Student(Student s); // to check
     bool export_catalog(QString path);
+    void show();
 };
 
 #endif // STUDENTCATALOG_H
