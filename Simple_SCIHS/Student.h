@@ -7,6 +7,11 @@
 #include<vector>
 #include<regex>
 
+#include<QDataStream>
+#include<QTextStream>
+
+#include<QFile>
+
 #include "validator.h"
 
 class Student
@@ -43,6 +48,40 @@ public:
 
     template<typename T>
     bool add_grade(const T grade);
+
+
+    std::string name(){return this->_name;}
+
+
+    std::string const surname(){return this->_surname;}
+
+
+    std::string const address(){return "";}//_addres;} to do
+
+
+    std::string const pesel(){return this->_pesel;}
+
+
+
+    std::string  index() const {return this->_index_nr;}; // to do
+    QString sindex(){return QString::fromStdString(index());};
+
+
+    std::string const email(){return this->_email;};
+
+
+    std::string const ph_number(){return this->_phone_number;}
+
+
+
+
+
+//    friend QDataStream& operator<<(QDataStream &stream, Student &student){
+//        stream << student.sindex();
+
+//        return stream;
+//    }
+
 };
 
 template<typename T>
@@ -51,12 +90,13 @@ bool Student::add_grade(const T grade)
     try {
         if(Validator::validate_grade(grade))
             this->_grades.push_back(grade);
+        return true;
 
     }  catch (const char* msg) {
         std::cerr << msg << std::endl;
     }
 
-
+    return false;
 }
 
 template<typename T>
