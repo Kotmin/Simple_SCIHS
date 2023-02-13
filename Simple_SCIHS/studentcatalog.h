@@ -2,6 +2,8 @@
 #define STUDENTCATALOG_H
 
 #include<QVector>
+#include <algorithm>
+
 #include "Student.h"
 
 #include<boost/multi_index/hashed_index.hpp>
@@ -15,6 +17,7 @@
 
 #include<boost/fusion/algorithm/iteration/for_each.hpp>
 #include<boost/fusion/include/for_each.hpp>
+
 
 typedef std::tuple<std::string,std::string,std::string,std::string,std::string> krotka;
 
