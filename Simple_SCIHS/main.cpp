@@ -45,15 +45,17 @@ int main()
 
     std::cout<<Validator::extract_date_from_pesel("02251305359")<<std::endl;
 
-    Student s4("Wilhelm","Zdobywca",tup1,"92121305359","554521","hab@mejl.pl","+48 124873556");
+    Student s4("Wilhelm","Zdobywca Radom",tup1,"92121505349","554521","hb@mejl.pl","+48 124876556");
     StudentCatalog cat;
 
     cat.add_Student(s1);
     cat.add_Student(s3);
     cat.add_Student(s4);
     cat.add("Wieso","Szabrownik",tup1,"81121305359","564521","bemowo@mejl.pl","+48 124873555",ocenki);
+    cat.add("Janko","Muzykant - Wierszolleta",tup1,"82121335359","564522","flet@mejl.pl","+48 224873555",ocenki);
 
     cat.show();
+    cat.count_double_barreleed_surname();
 
     return 0;
 }
