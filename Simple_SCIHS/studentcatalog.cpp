@@ -60,7 +60,9 @@ int StudentCatalog::count_double_barreleed_surname()
 {
     surname_type &surname_index = catalog.get<1>();
     std::regex re("[ -]+");
-    int how_many = surname_index.count(re);
+    int how_many = boost::range::count_if(surname_index, [re](auto student){
+       return std::regex_match(student.surname(), re);
+    });
     std::cout<<"Mamy "<< std::to_string(how_many)<<" nazwisk dwuczlonowych"<<std::endl;
     return how_many;
 }
