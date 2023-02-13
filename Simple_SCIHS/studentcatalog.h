@@ -55,6 +55,8 @@ private:
     // going into boost lib and MultiIndex Container seems like wiser choice than playing with qt vector and searching
     //how to make accesors / gain acces into class.
 //    students_multi students;
+
+
 public:
     StudentCatalog(){};
 //    QVector<Student> catalog;
@@ -65,6 +67,16 @@ public:
 
     void remove_Student_by_index(std:: string index); // to check
 //    bool export_catalog(QString path);
+// save to file
+    //read from file
+
+    //sorting part, I've made older operator which transform pesel into date and ~ return person1.age < person2.age
+    // please tell me that we have something like default alphabetical sort for string
+    // how to get inside that tuple?
+
+    // Student->generate_email() but how to store it?
+
+    //generate index->age container
 
     void show();
     void show_all_ppl_from_speficic_town(); //empty
