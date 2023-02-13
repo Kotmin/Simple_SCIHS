@@ -53,3 +53,12 @@ void Student::show_grades()
     std::cout<<std::endl;
 
 }
+
+float Student::calculate_the_avg() // without wages, just simple avr value
+{   int len_of_vector = this->_grades.size();
+    float sum=0.0;
+    for(auto& i: _grades)
+        sum+=i;
+    return sum/len_of_vector;
+
+}

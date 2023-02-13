@@ -81,6 +81,8 @@ public:
 
     std::vector<float> const &grades() const {return _grades;}
 
+    float calculate_the_avg();
+
 
 //    friend QDataStream& operator<<(QDataStream &stream, Student &student){
 //        stream << student.sindex();
@@ -89,6 +91,7 @@ public:
 //    }
 
 };
+
 
 template<typename T>
 bool Student::add_grade(const T grade)

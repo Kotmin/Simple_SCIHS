@@ -62,7 +62,11 @@ public:
              std::tuple<std::string,std::string,std::string,std::string,std::string> address_street_house_nr_ap_nr_p_code_city
              ,std::string pesel,std::string index, std::string email,std::string phone_num,std::vector<float> grades);
     void add_Student(Student s); // to check
-    bool export_catalog(QString path);
+
+    void remove_Student_by_index(std:: string index); // to check
+
+    int count_double_barreleed_surname(); //to check
+//    bool export_catalog(QString path);
     void show();
 };
 
