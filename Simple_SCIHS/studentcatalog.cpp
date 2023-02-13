@@ -56,14 +56,14 @@ void StudentCatalog::remove_Student_by_index(std::string index)
     it.erase(index);
 }
 
-int StudentCatalog::count_double_barreleed_surname()
-{
-    surname_type &surname_index = catalog.get<1>();
-    std::regex re("[ -]+");
-    int how_many = surname_index.count(re);
-    std::cout<<"Mamy "<< std::to_string(how_many)<<" nazwisk dwuczlonowych"<<std::endl;
-    return how_many;
-}
+//int StudentCatalog::count_double_barreleed_surname()
+//{
+//    surname_type &surname_index = catalog.get<1>();
+//    std::regex re("[ -]+");
+//    int how_many = surname_index.count(re);
+//    std::cout<<"Mamy "<< std::to_string(how_many)<<" nazwisk dwuczlonowych"<<std::endl;
+//    return how_many;
+//}
 
 void StudentCatalog::show()
 {
