@@ -53,12 +53,14 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../Simple_SCIHS/Student.cpp \
+		../Simple_SCIHS/compareavg.cpp \
 		../Simple_SCIHS/main.cpp \
 		../Simple_SCIHS/older.cpp \
 		../Simple_SCIHS/studentcatalog.cpp \
 		../Simple_SCIHS/unique_index.cpp \
 		../Simple_SCIHS/validator.cpp 
 OBJECTS       = Student.o \
+		compareavg.o \
 		main.o \
 		older.o \
 		studentcatalog.o \
@@ -140,10 +142,12 @@ DIST          = /../lib64/qt5/mkspecs/features/spec_pre.prf \
 		/../lib64/qt5/mkspecs/features/yacc.prf \
 		/../lib64/qt5/mkspecs/features/lex.prf \
 		../Simple_SCIHS/Simple_SCIHS.pro ../Simple_SCIHS/Student.h \
+		../Simple_SCIHS/compareavg.h \
 		../Simple_SCIHS/older.h \
 		../Simple_SCIHS/studentcatalog.h \
 		../Simple_SCIHS/unique_index.h \
 		../Simple_SCIHS/validator.h ../Simple_SCIHS/Student.cpp \
+		../Simple_SCIHS/compareavg.cpp \
 		../Simple_SCIHS/main.cpp \
 		../Simple_SCIHS/older.cpp \
 		../Simple_SCIHS/studentcatalog.cpp \
@@ -328,8 +332,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /../lib64/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Simple_SCIHS/Student.h ../Simple_SCIHS/older.h ../Simple_SCIHS/studentcatalog.h ../Simple_SCIHS/unique_index.h ../Simple_SCIHS/validator.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/main.cpp ../Simple_SCIHS/older.cpp ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/unique_index.cpp ../Simple_SCIHS/validator.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Simple_SCIHS/Student.h ../Simple_SCIHS/compareavg.h ../Simple_SCIHS/older.h ../Simple_SCIHS/studentcatalog.h ../Simple_SCIHS/unique_index.h ../Simple_SCIHS/validator.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/compareavg.cpp ../Simple_SCIHS/main.cpp ../Simple_SCIHS/older.cpp ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/unique_index.cpp ../Simple_SCIHS/validator.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -380,6 +384,9 @@ compiler_clean: compiler_moc_predefs_clean
 Student.o: ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/Student.h \
 		../Simple_SCIHS/validator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Student.o ../Simple_SCIHS/Student.cpp
+
+compareavg.o: ../Simple_SCIHS/compareavg.cpp ../Simple_SCIHS/compareavg.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o compareavg.o ../Simple_SCIHS/compareavg.cpp
 
 main.o: ../Simple_SCIHS/main.cpp ../Simple_SCIHS/Student.h \
 		../Simple_SCIHS/validator.h \
@@ -1390,7 +1397,8 @@ main.o: ../Simple_SCIHS/main.cpp ../Simple_SCIHS/Student.h \
 		../../coding/libs/include/boost/fusion/algorithm/iteration/detail/segmented_for_each.hpp \
 		../../coding/libs/include/boost/fusion/algorithm/iteration/for_each_fwd.hpp \
 		../../coding/libs/include/boost/fusion/support/segmented_fold_until.hpp \
-		../../coding/libs/include/boost/fusion/include/for_each.hpp
+		../../coding/libs/include/boost/fusion/include/for_each.hpp \
+		../Simple_SCIHS/older.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Simple_SCIHS/main.cpp
 
 older.o: ../Simple_SCIHS/older.cpp ../Simple_SCIHS/older.h \
@@ -2406,7 +2414,8 @@ studentcatalog.o: ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/studentcata
 		../../coding/libs/include/boost/fusion/algorithm/iteration/detail/segmented_for_each.hpp \
 		../../coding/libs/include/boost/fusion/algorithm/iteration/for_each_fwd.hpp \
 		../../coding/libs/include/boost/fusion/support/segmented_fold_until.hpp \
-		../../coding/libs/include/boost/fusion/include/for_each.hpp
+		../../coding/libs/include/boost/fusion/include/for_each.hpp \
+		../Simple_SCIHS/older.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o studentcatalog.o ../Simple_SCIHS/studentcatalog.cpp
 
 unique_index.o: ../Simple_SCIHS/unique_index.cpp ../Simple_SCIHS/unique_index.h

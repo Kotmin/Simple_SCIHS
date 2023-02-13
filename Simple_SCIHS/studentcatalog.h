@@ -18,6 +18,8 @@
 #include<boost/fusion/algorithm/iteration/for_each.hpp>
 #include<boost/fusion/include/for_each.hpp>
 
+#include "older.h"
+
 
 typedef std::tuple<std::string,std::string,std::string,std::string,std::string> krotka;
 
@@ -68,7 +70,7 @@ public:
              ,std::string pesel,std::string index, std::string email,std::string phone_num,std::vector<float> grades);
     void add_Student(Student s); // to check
 
-    void remove_Student_by_index(std:: string index); // to check
+    void remove_Student_by_index(std:: string index);
 //    bool export_catalog(QString path);
 // save to file
     //read from file
@@ -81,14 +83,19 @@ public:
 
     //generate index->age container
 
+
+
     void show();
     void show_all_ppl_from_speficic_town(); //empty
     void show_all_students_btw_24_and_26_yor(); //empty
 
+    void sort_by_age();
+
+    void generate_emails();
 // przydalaby sie funkcja ktora nam na biezaco zrobi slownik index - srednia, ze dynamicznie
     template <typename T>
     int count_students_with_avr_above_4_0(); //empty
-     int count_double_barreleed_surname(); //to check
+     int count_double_barreleed_surname();
 };
 
 #endif // STUDENTCATALOG_H

@@ -75,7 +75,7 @@ void StudentCatalog::show()
     for(auto it = catalog.get<0>().begin(); it != catalog.get<0>().end();++it)
     {
         it->show();
-        std::cout<<"num\n";
+//        std::cout<<"num\n";
     }
 
 //    for(auto i=0; i != catalog.size();i++)
@@ -84,6 +84,25 @@ void StudentCatalog::show()
 //    }
 //    boost::fusion::for_each(catalog,show());
 
+}
+
+void StudentCatalog::sort_by_age()
+{ auto ind = &catalog.get<3>();
+//    catalog.begin()
+//    boost::sort(begin(index),end(index),Older());
+//    boost::sort(catalog.begin(),catalog.end(),Older());
+
+    boost::sort(ind);
+
+}
+
+void StudentCatalog::generate_emails()
+{
+    for(auto it = catalog.get<0>().begin(); it != catalog.get<0>().end();++it)
+    {
+       std::cout<<it->index()<<" "<<it->index()<<"@pollub.edu.pl";
+       std::cout<<std::endl;
+    }
 }
 
 template<typename T>
