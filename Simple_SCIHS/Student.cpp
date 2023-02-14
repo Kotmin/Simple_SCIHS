@@ -80,6 +80,15 @@ void Student::show_grades()
 
 }
 
+std::string Student::address_to_str() const
+{
+    std::string ret="";
+    for(int i =0; i<5;i++)
+        ret+=std::get<i>(this->_address)+",";
+    return ret;
+}
+}
+
 float Student::calculate_the_avg() // without wages, just simple avr value
 {   int len_of_vector = this->_grades.size();
     float sum=0.0;

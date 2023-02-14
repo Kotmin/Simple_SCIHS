@@ -60,7 +60,7 @@ public:
     std::string surname() const {return this->_surname;}
 
 
-//    std::string address() const {return "";}//_addres;} to do
+    std::string address_to_str() const;//_addres;} to do
 
 
     std::string pesel() const {return this->_pesel;}

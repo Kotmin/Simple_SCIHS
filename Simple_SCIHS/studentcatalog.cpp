@@ -67,7 +67,7 @@ void StudentCatalog::export_to_file(std::string path)
         {
             fileOf<<it->name()<<";";
             fileOf<<it->surname()<<";";
-//            fileOf<<it->address()<<";";
+            fileOf<<it->address_to_str()<<";";
             fileOf<<it->pesel()<<";";
             fileOf<<it->email()<<";";
             fileOf<<it->ph_number()<<";";
