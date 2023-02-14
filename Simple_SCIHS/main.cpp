@@ -18,7 +18,17 @@ int main()
 
     std::tuple<std::string,std::string,std::string,std::string,std::string> tup1;
     tup1 = std::make_tuple("Downing st.","3a","14","20-508","Lubdyn");
-    Student s1("Adam","Wielysz - Abroam",tup1,"02251305359","554429","mymail@mejl.pl","+48 124873556");
+
+    std::tuple<std::string,std::string,std::string,std::string,std::string> tup2;
+    tup2 = std::make_tuple("Downing st.","3a","14","20-508","Alzacja");
+
+    std::tuple<std::string,std::string,std::string,std::string,std::string> tup3;
+    tup3 = std::make_tuple("Downing st.","3a","14","20-508","Bemowo");
+
+    std::tuple<std::string,std::string,std::string,std::string,std::string> tup4;
+    tup4 = std::make_tuple("Downing st.","3a","14","20-508","Cajlon");
+
+    Student s1("Adam","Wielysz - Abroam",tup4,"02251305359","554429","mymail@mejl.pl","+48 124873556");
 
     std::vector<float> ocenki;
     ocenki.push_back(5.0);
@@ -51,18 +61,28 @@ int main()
     cat.add_Student(s1);
     cat.add_Student(s3);
     cat.add_Student(s4);
-    cat.add("Wieso","Szabrownik",tup1,"81121305359","564521","bemowo@mejl.pl","+48 124873555",ocenki);
-    cat.add("Janko","Muzykant - Wierszolleta",tup1,"82121335359","564522","flet@mejl.pl","+48 224873555",ocenki);
+    cat.add("Wieso","Szabrownik",tup2,"81121305359","564521","bemowo@mejl.pl","+48 124873555",ocenki);
+    cat.add("Janko","Muzykant - Wierszolleta",tup3,"82121335359","564522","flet@mejl.pl","+48 224873555",ocenki);
 
     cat.show();
     cat.count_double_barreleed_surname();
-    cat.remove_Student_by_index("554429");
+//    cat.remove_Student_by_index("554429");
     cat.show();
 //    cat.sort_by_age();
     cat.show();
     cat.export_to_file("plik.txt");
 
     cat.sort_by_age();
+    cat.sort_by_surname();
+    cat.sort_by_city_name(); // error
+
+    // został cały segment z wyświetlaniem
+
+    // 10% studentow z najwyzsza sredniaa
+
+    // trzeba dopisac oceny do eksportu i zaimplementowac import
+
+    //not czajen dlaczego f szablonowa z count
 
     return 0;
 }

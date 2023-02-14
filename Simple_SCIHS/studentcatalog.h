@@ -93,8 +93,9 @@ public:
     void show_all_ppl_from_speficic_town(std::string town); //empty
     void show_all_students_btw_24_and_26_yor(); //empty
 
-    void sort_by_age(); //emp
-    void sort_by_surname(); //emp
+    void sort_by_age();
+    void sort_by_surname();
+    void sort_by_city_name(); // not working, there is some trouble with tuple
 
     void generate_emails();
 // przydalaby sie funkcja ktora nam na biezaco zrobi slownik index - srednia, ze dynamicznie

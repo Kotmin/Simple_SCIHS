@@ -196,6 +196,51 @@ void StudentCatalog::sort_by_age()
 
 }
 
+bool surnameSort(const Student &s1, const Student &s2){
+    std::string surname_1 = s1.surname();
+    std::string surname_2 = s2.surname();
+
+    return surname_1 < surname_2;
+
+}
+
+void StudentCatalog::sort_by_surname()
+{
+    auto ind = &catalog.get<1>();
+
+        std::vector<boost::reference_wrapper<Student const> > temporary(ind->begin(),ind->end());
+
+        std::sort(temporary.begin(),temporary.end(),surnameSort);
+
+        for(Student const& e: temporary)
+            e.show();
+}
+
+
+bool city_name_Sort(const Student &s1, const Student &s2)
+{
+    krotka t1= s1.address();
+    krotka t2= s2.address();
+
+//    std::get<0>(t1);
+    std::cout<<std::endl<<std::get<4>(s1.address())<<std::endl;
+
+    return std::get<4>(t1) < std::get<4>(t2);
+
+}
+void StudentCatalog::sort_by_city_name()
+{
+    auto ind = &catalog.get<2>();
+
+        std::vector<boost::reference_wrapper<Student const> > temporary(ind->begin(),ind->end());
+
+        std::sort(temporary.begin(),temporary.end(),city_name_Sort);
+
+        for(Student const& e: temporary)
+            e.show();
+//            std::cout<<e.index()<<" "<<e.address()
+}
+
 void StudentCatalog::generate_emails()
 {
     for(auto it = catalog.get<0>().begin(); it != catalog.get<0>().end();++it)
