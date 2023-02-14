@@ -68,7 +68,8 @@ Student::Student(std::string name, std::string surname, std::tuple<std::string, 
 
 void Student::show() const
 {
-    std::cout<<this->index()<<" "<<this->name()<<" "<< this->surname()<<" "<<this->email()<<std::endl;
+    std::cout<<this->index()<<" "<<this->name()<<" "<< this->surname()<<" "<<this->email()<<
+            " "<<this->pesel()<<std::endl;
 
 }
 
@@ -80,14 +81,14 @@ void Student::show_grades()
 
 }
 
-std::string Student::address_to_str() const
-{
-    std::string ret="";
-    for(int i =0; i<5;i++)
-        ret+=std::get<i>(this->_address)+",";
-    return ret;
-}
-}
+//std::string Student::address_to_str() const
+//{
+//    std::string ret="";
+//    for(int i =0; i<5;i++)
+//        ret+=std::get<i>(this->_address)+",";
+//    return ret;
+//}
+//}
 
 float Student::calculate_the_avg() // without wages, just simple avr value
 {   int len_of_vector = this->_grades.size();

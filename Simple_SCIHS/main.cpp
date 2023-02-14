@@ -60,7 +60,9 @@ int main()
     cat.show();
 //    cat.sort_by_age();
     cat.show();
-    cat.export_to_file();
+    cat.export_to_file("plik.txt");
+
+    cat.sort_by_age();
 
     return 0;
 }

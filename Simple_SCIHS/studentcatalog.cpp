@@ -67,11 +67,13 @@ void StudentCatalog::export_to_file(std::string path)
         {
             fileOf<<it->name()<<";";
             fileOf<<it->surname()<<";";
-            fileOf<<it->address_to_str()<<";";
+//            fileOf<<it->address_to_str()<<";";
             fileOf<<it->pesel()<<";";
             fileOf<<it->email()<<";";
             fileOf<<it->ph_number()<<";";
+            //ocenki jeszcze bys im pozapisywal moze co?
             fileOf<<"\n";
+
         }
         fileOf.close();
     }
@@ -129,8 +131,62 @@ void StudentCatalog::show_all_students_btw_24_and_26_yor()
 //    auto
 }
 
+bool myOldSort(const Student &s1, const Student &s2)
+{
+    std::string pesel_1 = s1.pesel();
+    std::string pesel_2 = s2.pesel();
+    std::string date_1 = Validator::extract_date_from_pesel(pesel_1);
+    std::string date_2 = Validator::extract_date_from_pesel(pesel_2);
+    std::cout<<"date 1 "<< date_1 << " vs "<< "date 2 "<< date_2 << std::endl;
+//    int decade = std::stoi(pesel.substr(0,2));
+//    int month = std::stoi(pesel.substr(2,2));
+//    int day = std::stoi(pesel.substr(4,2));
+
+    int year_1 = std::stoi(date_1.substr(6,4));
+    int year_2 = std::stoi(date_2.substr(6,4));
+
+//    std::cout<<date_1.substr(6,4)<<" vs "<< date_2.substr(6,4) << std::endl;
+
+    int month_1 = std::stoi(date_1.substr(3,2));
+    int month_2 = std::stoi(date_2.substr(3,2));
+
+    int day_1 = std::stoi(date_1.substr(0,2));
+    int day_2 = std::stoi(date_2.substr(0,2));
+
+    if(year_1 < year_2)
+        return true;
+
+    if(year_1 > year_2)
+        return false;
+
+    if(month_1<month_2)
+        return true;
+
+    if(month_1>month_2)
+        return false;
+
+    if(day_1<day_2)
+        return true;
+
+    if(day_1>day_2)
+        return false;
+
+    return false;
+
+}
+
+
+
+
 void StudentCatalog::sort_by_age()
 { auto ind = &catalog.get<3>();
+
+    std::vector<boost::reference_wrapper<Student const> > temporary(ind->begin(),ind->end());
+
+    std::sort(temporary.begin(),temporary.end(),myOldSort);
+
+    for(Student const& e: temporary)
+        e.show();
 //    catalog.begin()
 //    boost::sort(begin(index),end(index),Older());
 //    boost::sort(catalog.begin(),catalog.end(),Older());
