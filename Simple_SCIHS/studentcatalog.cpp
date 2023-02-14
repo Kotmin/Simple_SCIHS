@@ -69,9 +69,11 @@ void StudentCatalog::export_to_file(std::string path)
             fileOf<<it->surname()<<";";
 //            fileOf<<it->address_to_str()<<";";
             fileOf<<it->pesel()<<";";
+            fileOf<<it->index()<<";";
             fileOf<<it->email()<<";";
             fileOf<<it->ph_number()<<";";
             //ocenki jeszcze bys im pozapisywal moze co?
+            fileOf<<it->ret_grades()<<";";
             fileOf<<"\n";
 
         }
@@ -126,9 +128,33 @@ void StudentCatalog::show()
 
 //}
 
+bool isInRange24_26(const Student &s1){ // to year precision
+    int actual_year = 2023;
+    std::string students_date_of_birth = Validator::extract_date_from_pesel(s1.pesel());
+    int year_of_students_birth = std::stoi(students_date_of_birth.substr(6,4));
+    int diff = (actual_year-year_of_students_birth);
+    return (24 <= diff) && (diff <= 26);
+}
 void StudentCatalog::show_all_students_btw_24_and_26_yor()
 {
 //    auto
+    auto ind = &catalog.get<3>();
+
+        std::vector<boost::reference_wrapper<Student const> > temporary(ind->begin(),ind->end());
+    auto start = temporary.begin();
+
+    for(auto it=start;it!=temporary.end();it++)
+    {
+        it = std::find_if(start,temporary.end(),isInRange24_26);
+//        *it->show();
+//         std::cout<<"Last obj is behind"<< *it<<std::endl;
+    }
+
+//        std::sort(temporary.begin(),temporary.end(),myOldSort);
+
+//        for(Student const& e: temporary)
+//            e.show();
+
 }
 
 bool myOldSort(const Student &s1, const Student &s2)

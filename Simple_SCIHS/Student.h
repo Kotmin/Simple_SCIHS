@@ -60,7 +60,7 @@ public:
     std::string surname() const {return this->_surname;}
 
 
-    std::string address_to_str() const;//_addres;} to do
+    std::string address_to_str() const;//_addres;} ret empty str
 
 
     std::string pesel() const {return this->_pesel;}
@@ -83,6 +83,7 @@ public:
 
     float calculate_the_avg();
     std::string generate_email();
+    std::string ret_grades() const;
 
 
 //    friend QDataStream& operator<<(QDataStream &stream, Student &student){

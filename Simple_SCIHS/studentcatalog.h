@@ -101,7 +101,7 @@ public:
 // przydalaby sie funkcja ktora nam na biezaco zrobi slownik index - srednia, ze dynamicznie
     template <typename T>
     int count_students_with_avr_above_4_0(); //empty
-     int count_double_barreleed_surname();
+    int count_double_barreleed_surname();
 };
 
 #endif // STUDENTCATALOG_H

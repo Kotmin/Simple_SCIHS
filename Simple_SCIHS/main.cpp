@@ -76,11 +76,14 @@ int main()
     cat.sort_by_surname();
     cat.sort_by_city_name(); // error
 
+
+    std::cout<<s4.address_to_str()<<std::endl;
+
     // został cały segment z wyświetlaniem
 
     // 10% studentow z najwyzsza sredniaa
 
-    // trzeba dopisac oceny do eksportu i zaimplementowac import
+    // zaimplementowac import
 
     //not czajen dlaczego f szablonowa z count
 

@@ -1,4 +1,4 @@
-Adam;Wielysz - Abroam;02251305359;mymail@mejl.pl;+48124873556;
-Wilhelm;Zdobywca Radom;92121505349;hb@mejl.pl;+48124876556;
-Wieso;Szabrownik;81121305359;bemowo@mejl.pl;+48124873555;
-Janko;Muzykant - Wierszolleta;82121335359;flet@mejl.pl;+48224873555;
+Adam;Wielysz - Abroam;02251305359;554429;mymail@mejl.pl;+48124873556;;
+Wilhelm;Zdobywca Radom;92121505349;554521;hb@mejl.pl;+48124876556;;
+Wieso;Szabrownik;81121305359;564521;bemowo@mejl.pl;+48124873555;5.0,4.0,2.0,3.5,;
+Janko;Muzykant - Wierszolleta;82121335359;564522;flet@mejl.pl;+48224873555;5.0,4.0,2.0,3.5,;

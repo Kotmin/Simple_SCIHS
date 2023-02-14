@@ -81,6 +81,16 @@ void Student::show_grades()
 
 }
 
+std::string Student::address_to_str() const
+{
+    std::string street,house_nr,flat_nr,postal_code,city;
+
+    std::tie(street,house_nr,flat_nr,postal_code,city) = this->address();
+
+    return street+","+house_nr+","+flat_nr+","+postal_code+","+city;
+
+}
+
 //std::string Student::address_to_str() const
 //{
 //    std::string ret="";
@@ -102,4 +112,16 @@ float Student::calculate_the_avg() // without wages, just simple avr value
 std::string Student::generate_email()
 {
     return this->index() +"@pollub.edu.pl";
+}
+
+std::string Student::ret_grades() const
+{ std::string ret = "";
+    for(auto& i: _grades){
+        ret+=std::to_string(i).substr(0,3);
+        ret+=",";
+    }
+
+
+    return ret;
+
 }
