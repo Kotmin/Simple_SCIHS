@@ -45,7 +45,7 @@ bool Validator::validate_index(std::string index)
 
     if(regex_match(index,reg_ex_index)) return true;
 
-    throw "\n Wprowadzono niepoprawny PESEL\n";
+    throw "\n Wprowadzono niepoprawny index\n";
 }
 
 bool Validator::validate_email(std::string email)

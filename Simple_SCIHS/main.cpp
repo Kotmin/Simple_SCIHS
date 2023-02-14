@@ -70,14 +70,18 @@ int main()
     cat.show();
 //    cat.sort_by_age();
     cat.show();
-    cat.export_to_file("plik.txt");
+    // zakomentowane aby moc na spokojnie testowac importowanie
+//    cat.export_to_file("plik.txt");
 
+    //sort ok
     cat.sort_by_age();
     cat.sort_by_surname();
-    cat.sort_by_city_name(); // error
+    cat.sort_by_city_name();
+    std::cout<<"Odczyt z pliku"<<std::endl;
+//    cat.import_from_file();
 
 
-    std::cout<<s4.address_to_str()<<std::endl;
+//    std::cout<<s4.address_to_str()<<std::endl;
 
     // został cały segment z wyświetlaniem
 
@@ -86,6 +90,34 @@ int main()
     // zaimplementowac import
 
     //not czajen dlaczego f szablonowa z count
+
+
+//    std::tuple<std::string,std::string,std::string,std::string,std::string> tup4;
+//    tup4 = std::make_tuple("Downing st.","3a","14","20-508","Cajlon");
+
+
+    std::tuple<std::string,std::string,std::string,std::string,std::string> tup5;
+    tup5 = std::make_tuple("3rd","2","","20-101","California");
+
+    StudentCatalog cat2;
+    std::cout<<"Odczyt z pliku 2"<<std::endl;
+    cat2.import_from_file(); // nie wczytalo dodatkowych
+    // jak zapisze z łapki to ignoruje, jak wczytam na czysto to jest
+    cat2.add("Tony","Stark",tup5,"00242207291",
+             "542542","corp@email.com","+01283573454");
+
+//     cat.add("Wieso","Szabrownik",tup2,"81121305359","564521","bemowo@mejl.pl","+48 124873555",ocenki);
+
+
+    cat2.show();
+    cat2.export_to_file();
+
+    StudentCatalog cat3;
+    std::cout<<"Odczyt z pliku 3"<<std::endl;
+    cat3.import_from_file();
+    cat3.show();
+
+
 
     return 0;
 }

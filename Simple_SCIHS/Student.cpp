@@ -88,7 +88,7 @@ std::string Student::address_to_str() const
 
     std::tie(street,house_nr,flat_nr,postal_code,city) = this->address();
 
-    return street+","+house_nr+","+flat_nr+","+postal_code+","+city;
+    return street+","+house_nr+","+flat_nr+","+postal_code+","+city+",";
 
 }
 
@@ -101,7 +101,7 @@ std::string Student::address_to_str() const
 //}
 //}
 
-float Student::calculate_the_avg() // without wages, just simple avr value
+float Student::calculate_the_avg() // without wages, just simple avg value
 {   int len_of_vector = this->_grades.size();
     float sum=0.0;
     for(auto& i: _grades)

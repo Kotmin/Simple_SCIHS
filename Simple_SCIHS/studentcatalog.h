@@ -69,12 +69,15 @@ public:
     void add(std::string name,std::string surname,
              std::tuple<std::string,std::string,std::string,std::string,std::string> address_street_house_nr_ap_nr_p_code_city
              ,std::string pesel,std::string index, std::string email,std::string phone_num,std::vector<float> grades);
+
+    void add(std::string name, std::string surname, std::tuple<std::string, std::string, std::string, std::string, std::string> address_street_house_nr_ap_nr_p_code_city, std::string pesel,
+                             std::string index, std::string email, std::string phone_num);
     void add_Student(Student s); // to check
 
     void remove_Student_by_index(std:: string index);
 
     void export_to_file(std::string path="plik.txt");
-    void import_from_file(std::string path);
+    void import_from_file(std::string path="plik.txt");
 //    bool export_catalog(QString path);
 // save to file
     //read from file
@@ -95,7 +98,7 @@ public:
 
     void sort_by_age();
     void sort_by_surname();
-    void sort_by_city_name(); // not working, there is some trouble with tuple
+    void sort_by_city_name();
 
     void generate_emails();
 // przydalaby sie funkcja ktora nam na biezaco zrobi slownik index - srednia, ze dynamicznie

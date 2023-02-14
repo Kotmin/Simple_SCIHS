@@ -45,6 +45,13 @@ void StudentCatalog::add(std::string name, std::string surname, std::tuple<std::
 
 }
 
+void StudentCatalog::add(std::string name, std::string surname, std::tuple<std::string, std::string, std::string, std::string, std::string> address_street_house_nr_ap_nr_p_code_city, std::string pesel, std::string index, std::string email, std::string phone_num)
+{
+    std::vector<float> grades;
+    this->add(name,surname,address_street_house_nr_ap_nr_p_code_city,pesel,index,email,phone_num,grades);
+
+}
+
 void StudentCatalog::add_Student(Student s)
 {
     catalog.insert({s.name(),s.surname(),s.address(),s.pesel(),s.index(),s.email(),s.ph_number(),s.grades()});
@@ -67,7 +74,7 @@ void StudentCatalog::export_to_file(std::string path)
         {
             fileOf<<it->name()<<";";
             fileOf<<it->surname()<<";";
-//            fileOf<<it->address_to_str()<<";";
+            fileOf<<it->address_to_str()<<";";
             fileOf<<it->pesel()<<";";
             fileOf<<it->index()<<";";
             fileOf<<it->email()<<";";
@@ -84,7 +91,72 @@ void StudentCatalog::export_to_file(std::string path)
 
 }  catch (const char* msg) {
     std::cerr << msg << std::endl;
+    }
 }
+
+void StudentCatalog::import_from_file(std::string path)
+{
+    std::ifstream fileIf;
+    fileIf.open(path);
+    std::string line,tmp;
+    size_t pos =0;
+
+    std::vector<std::string> temp;
+    std::vector<std::string> temp_address;
+    std::vector<float> temp_grades;
+    std::string delimiter =";";
+
+    try {
+
+    while (getline(fileIf,line)) {
+        delimiter=";";
+
+        while((pos = line.find(delimiter)) != std::string::npos){
+            temp.push_back(line.substr(0,pos));
+            line.erase(0,pos + delimiter.length());
+        }
+        //addres part
+        delimiter=",";
+        while((pos = temp[2].find(delimiter)) != std::string::npos){
+            temp_address.push_back(temp[2].substr(0,pos));
+            temp[2].erase(0,pos + delimiter.length());
+        }
+
+                for(auto& i: temp_address) //just for testing
+                    std::cout<<i<<" ";
+           std::cout<<std::endl;
+
+        krotka hook = std::make_tuple(temp_address[0],temp_address[1],temp_address[2],temp_address[3],
+                temp_address[4]);
+
+        if(temp.size()==7) //if line contains grades
+        {
+            delimiter=",";
+            while((pos = temp[6].find(delimiter)) != std::string::npos){
+                temp_grades.push_back(std::stof(temp[6].substr(0,pos)));
+                temp[6].erase(0,pos + delimiter.length());
+            }
+            Validator::validate_grades(temp_grades);
+        }
+
+        this->add(temp[0],temp[1],hook,temp[3],temp[4],temp[5],temp[6],temp_grades);
+//        for(auto& i: temp) //just for testing
+//            std::cout<<i<<" ";
+
+//        std::cout<<std::endl;
+
+        temp.clear();
+        temp_grades.clear();
+        temp_address.clear();
+
+
+//        std::cout<<line<<std::endl;
+    }
+
+}  catch (const char* msg) {
+    std::cerr << msg << std::endl;
+}
+    fileIf.close();
 }
 
 
@@ -249,7 +321,7 @@ bool city_name_Sort(const Student &s1, const Student &s2)
     krotka t2= s2.address();
 
 //    std::get<0>(t1);
-    std::cout<<std::endl<<std::get<4>(s1.address())<<std::endl;
+//    std::cout<<std::endl<<std::get<4>(s1.address())<<std::endl;
 
     return std::get<4>(t1) < std::get<4>(t2);
 
