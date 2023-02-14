@@ -58,8 +58,9 @@ int main()
     cat.count_double_barreleed_surname();
     cat.remove_Student_by_index("554429");
     cat.show();
-    cat.sort_by_age();
+//    cat.sort_by_age();
     cat.show();
+    cat.export_to_file();
 
     return 0;
 }

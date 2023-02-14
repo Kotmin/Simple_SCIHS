@@ -19,6 +19,7 @@
 #include<boost/fusion/include/for_each.hpp>
 
 #include "older.h"
+#include<fstream>
 
 
 typedef std::tuple<std::string,std::string,std::string,std::string,std::string> krotka;
@@ -71,6 +72,9 @@ public:
     void add_Student(Student s); // to check
 
     void remove_Student_by_index(std:: string index);
+
+    void export_to_file(std::string path="plik.txt");
+    void import_from_file(std::string path);
 //    bool export_catalog(QString path);
 // save to file
     //read from file
@@ -86,10 +90,11 @@ public:
 
 
     void show();
-    void show_all_ppl_from_speficic_town(); //empty
+    void show_all_ppl_from_speficic_town(std::string town); //empty
     void show_all_students_btw_24_and_26_yor(); //empty
 
-    void sort_by_age();
+    void sort_by_age(); //emp
+    void sort_by_surname(); //emp
 
     void generate_emails();
 // przydalaby sie funkcja ktora nam na biezaco zrobi slownik index - srednia, ze dynamicznie
