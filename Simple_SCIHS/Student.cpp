@@ -27,7 +27,7 @@ Student::Student(std::string name, std::string surname, std::tuple<std::string, 
     }  catch (const char* msg) {
         std::cerr << msg << std::endl;
     }
-
+    this->_address = address_street_house_nr_ap_nr_p_code_city;
 
 
     // miescje na walidacje wnetrza krotki
@@ -64,6 +64,7 @@ Student::Student(std::string name, std::string surname, std::tuple<std::string, 
     }  catch (const char* msg) {
         std::cerr << msg << std::endl;
     }
+    this->_address = address_street_house_nr_ap_nr_p_code_city;
 }
 
 void Student::show() const

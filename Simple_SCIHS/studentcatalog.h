@@ -91,7 +91,7 @@ public:
 
     void show();
     void show_all_ppl_from_speficic_town(std::string town); //empty
-    void show_all_students_btw_24_and_26_yor(); //empty
+    void show_all_students_btw_24_and_26_yor(); //how to extract data from it?
 
     void sort_by_age();
     void sort_by_surname();
