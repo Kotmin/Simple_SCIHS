@@ -3,6 +3,7 @@
 
 #include<QVector>
 #include <algorithm>
+#include <sstream>
 
 #include "Student.h"
 
