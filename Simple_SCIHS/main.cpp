@@ -127,7 +127,10 @@ int main()
     cat3.show_all_ppl_from_speficic_town("Lubdyn");
 
 
-
+    // pozostalo policzenie ile jest studentow ze srednia powyzej 4.0 ( f szablonowa)
+    // sprawdzenie tego importu i eksportu (popros o opinie niezaleznego eksperta)
+    // dodaj do showa pozostale informacje o studentach
+    // wyswietlanie 10% studentow z najwyzsza srednia
 
     return 0;
 }
