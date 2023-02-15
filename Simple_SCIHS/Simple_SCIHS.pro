@@ -22,7 +22,6 @@ SOURCES += \
         main.cpp \
         older.cpp \
         studentcatalog.cpp \
-        unique_index.cpp \
         validator.cpp
 
 # Default rules for deployment.
@@ -35,5 +34,4 @@ HEADERS += \
     compareavg.h \
     older.h \
     studentcatalog.h \
-    unique_index.h \
     validator.h

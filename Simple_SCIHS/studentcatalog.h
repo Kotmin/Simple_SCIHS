@@ -88,7 +88,6 @@ public:
 
     //sorting part, I've made older operator which transform pesel into date and ~ return person1.age < person2.age
     // please tell me that we have something like default alphabetical sort for string
-    // how to get inside that tuple?
 
     // Student->generate_email() but how to store it?
 

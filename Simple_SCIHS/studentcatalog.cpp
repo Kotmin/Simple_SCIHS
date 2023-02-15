@@ -312,7 +312,7 @@ bool myOldSort(const Student &s1, const Student &s2)
     std::string pesel_2 = s2.pesel();
     std::string date_1 = Validator::extract_date_from_pesel(pesel_1);
     std::string date_2 = Validator::extract_date_from_pesel(pesel_2);
-    std::cout<<"date 1 "<< date_1 << " vs "<< "date 2 "<< date_2 << std::endl;
+//    std::cout<<"date 1 "<< date_1 << " vs "<< "date 2 "<< date_2 << std::endl;
 //    int decade = std::stoi(pesel.substr(0,2));
 //    int month = std::stoi(pesel.substr(2,2));
 //    int day = std::stoi(pesel.substr(4,2));

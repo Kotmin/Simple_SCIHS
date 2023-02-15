@@ -57,14 +57,12 @@ SOURCES       = ../Simple_SCIHS/Student.cpp \
 		../Simple_SCIHS/main.cpp \
 		../Simple_SCIHS/older.cpp \
 		../Simple_SCIHS/studentcatalog.cpp \
-		../Simple_SCIHS/unique_index.cpp \
 		../Simple_SCIHS/validator.cpp 
 OBJECTS       = Student.o \
 		compareavg.o \
 		main.o \
 		older.o \
 		studentcatalog.o \
-		unique_index.o \
 		validator.o
 DIST          = /../lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/common/unix.conf \
@@ -145,13 +143,11 @@ DIST          = /../lib64/qt5/mkspecs/features/spec_pre.prf \
 		../Simple_SCIHS/compareavg.h \
 		../Simple_SCIHS/older.h \
 		../Simple_SCIHS/studentcatalog.h \
-		../Simple_SCIHS/unique_index.h \
 		../Simple_SCIHS/validator.h ../Simple_SCIHS/Student.cpp \
 		../Simple_SCIHS/compareavg.cpp \
 		../Simple_SCIHS/main.cpp \
 		../Simple_SCIHS/older.cpp \
 		../Simple_SCIHS/studentcatalog.cpp \
-		../Simple_SCIHS/unique_index.cpp \
 		../Simple_SCIHS/validator.cpp
 QMAKE_TARGET  = Simple_SCIHS
 DESTDIR       = 
@@ -332,8 +328,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /../lib64/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Simple_SCIHS/Student.h ../Simple_SCIHS/compareavg.h ../Simple_SCIHS/older.h ../Simple_SCIHS/studentcatalog.h ../Simple_SCIHS/unique_index.h ../Simple_SCIHS/validator.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/compareavg.cpp ../Simple_SCIHS/main.cpp ../Simple_SCIHS/older.cpp ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/unique_index.cpp ../Simple_SCIHS/validator.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Simple_SCIHS/Student.h ../Simple_SCIHS/compareavg.h ../Simple_SCIHS/older.h ../Simple_SCIHS/studentcatalog.h ../Simple_SCIHS/validator.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Simple_SCIHS/Student.cpp ../Simple_SCIHS/compareavg.cpp ../Simple_SCIHS/main.cpp ../Simple_SCIHS/older.cpp ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/validator.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -2417,9 +2413,6 @@ studentcatalog.o: ../Simple_SCIHS/studentcatalog.cpp ../Simple_SCIHS/studentcata
 		../../coding/libs/include/boost/fusion/include/for_each.hpp \
 		../Simple_SCIHS/older.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o studentcatalog.o ../Simple_SCIHS/studentcatalog.cpp
-
-unique_index.o: ../Simple_SCIHS/unique_index.cpp ../Simple_SCIHS/unique_index.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o unique_index.o ../Simple_SCIHS/unique_index.cpp
 
 validator.o: ../Simple_SCIHS/validator.cpp ../Simple_SCIHS/validator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o validator.o ../Simple_SCIHS/validator.cpp

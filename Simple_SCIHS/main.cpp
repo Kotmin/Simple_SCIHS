@@ -8,9 +8,6 @@
 
 int main()
 {
-//    QCoreApplication a(argc, argv);
-    std::cout<<"Hello\n";std::cout<<"Hello2\n";
-
 
 //    Student(std::string name,std::string surname,
 //            std::tuple<std::string,std::string,std::string,std::string,std::string> address_street_house_nr_ap_nr_p_code_city
@@ -36,17 +33,25 @@ int main()
     ocenki.push_back(2.0);
     ocenki.push_back(3.5);
 //    Student s2("Tadeusz","Ramen",tup1,"02251305359","554421","mymail@mejl.pl","+48 124873556",ocenki);
+
+    std::cout<<"Testowanie funkcji szablonowej"<<std::endl;
     s1.show_grades(ocenki);
 
+    std::cout<<std::endl;
 
+    std::cout<<"Testowanie przeciazenia metody show wprost z klasy i na jej kontenerze"<<std::endl;
     Student s3("Tobiasz","Kanoe",tup1,"04311305359","554421","mymail@mejl.pl","+48 124873556");
     s3.add_grade(5);
     s3.add_grade(4.5);
     s3.add_grade(3);
     s3.add_grade(3.7);
     s3.show_grades();
+    std::cout<<std::endl;
 
+    std::cout<<"Testowanie niedoskonalej funkcji wyciagajacej date (wlasy format) z pesel"<<std::endl;
     std::cout<<Validator::extract_date_from_pesel("02251305359")<<std::endl;
+
+    std::cout<<std::endl;
 
     Student s4("Wilhelm","Zdobywca Radom",tup1,"92121505349","554521","hb@mejl.pl","+48 124876556");
     StudentCatalog cat;
@@ -59,20 +64,26 @@ int main()
 
     cat.show();
     cat.count_double_barreleed_surname();
-//    cat.remove_Student_by_index("554429");
+
+    cat.remove_Student_by_index("554429");
+
     cat.show();
-//    cat.sort_by_age();
-    cat.show();
+
+
     // zakomentowane aby moc na spokojnie testowac importowanie
 //    cat.export_to_file("plik.txt");
 
+    // funkcje zwiazane z importem / eksportem maja w domysle ustawiona sciezke bezposrednio na plik.txt
     //sort ok
+    std::cout<<"Sortowanie po dacie urodzenia"<<std::endl;
     cat.sort_by_age();
+    std::cout<<"Sortowanie po nazwisku"<<std::endl;
     cat.sort_by_surname();
+    std::cout<<"Sortowanie po miejscowosci zamieszkania"<<std::endl;
     cat.sort_by_city_name();
-    std::cout<<"Odczyt z pliku"<<std::endl;
-//    cat.import_from_file();
 
+
+    std::cout<<"Pokaz indeksy wraz z wszystkimi ocenami"<<std::endl;
     cat.show_students_with_their_grades();
 
 //    std::tuple<std::string,std::string,std::string,std::string,std::string> tup4;
@@ -84,21 +95,21 @@ int main()
 
     StudentCatalog cat2;
     std::cout<<"Odczyt z pliku 2"<<std::endl;
-    cat2.import_from_file(); // nie wczytalo dodatkowych
-    // jak zapisze z łapki to ignoruje, jak wczytam na czysto to jest
-    cat2.add("Tony","Stark",tup5,"02242207291","542542","corp@email.com","+01283573454");
+    cat2.import_from_file();
 
-//     cat.add("Wieso","Szabrownik",tup2,"81121305359","564521","bemowo@mejl.pl","+48 124873555",ocenki);
+
+//     cat2.add("Wieso","Szabrownik",tup2,"82121305359","964521","alzacja@mejl.pl","+42 124873555",ocenki);
 
 
 //    cat2.show();
 //    cat2.show_students_with_their_grades();
-//    cat2.export_to_file();
+//    cat2.export_to_file(); // zakomentowane gdyz tutaj zawsze nadpisujemy plik, nie dawalem append
 
     StudentCatalog cat3;
     std::cout<<"Odczyt z pliku 3"<<std::endl;
     cat3.import_from_file();
     cat3.show();
+
     cat3.show_students_with_their_avr();
 
     std::cout<<"All students 24-26"<<std::endl;
@@ -107,19 +118,20 @@ int main()
     std::cout<<"All students with foreign numbers"<<std::endl;
     cat3.show_all_pll_with_foreign_ph_numbers();
 
-    std::cout<<"All students with foreign numbers"<<std::endl;
+    std::cout<<"All students from specific town"<<std::endl;
     cat3.show_all_ppl_from_speficic_town("Lubdyn");
 
+    std::cout<<"Pokaz indeksy wraz z obliczona srednia"<<std::endl;
     cat3.show_students_with_their_avr();
     cat3.count_students_with_avr_above_4_0();
 
+    std::cout<<"Show indexes with grades"<<std::endl;
     cat3.show_students_with_their_grades();
     std::cout<<"10% of best students"<<std::endl;
     cat3.show_best_students();
 
     // pozostalo policzenie ile jest studentow ze srednia powyzej 4.0 ( f szablonowa)?
 
-    // cos z datami z pesel
 
     return 0;
 }
