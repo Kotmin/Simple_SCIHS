@@ -17,10 +17,6 @@
 
 //}
 
-//void StudentCatalog::add(std::string name, std::string surname, std::tuple<std::string, std::string, std::string, std::string, std::string> address_street_house_nr_ap_nr_p_code_city, std::string pesel, std::string index, std::string email, std::string phone_num, std::vector<float> grades)
-//{
-//    catalog.insert({name,surname,address_street_house_nr_ap_nr_p_code_city,pesel,index,email,phone_num,grades});
-//}
 
 void StudentCatalog::add(std::string name, std::string surname, std::tuple<std::string, std::string, std::string, std::string, std::string> address_street_house_nr_ap_nr_p_code_city, std::string pesel, std::string index, std::string email, std::string phone_num, std::vector<float> grades)
 {
@@ -282,6 +278,34 @@ void StudentCatalog::show_students_with_their_avr()
     }
 }
 
+bool CompareAVG(const Student &s1, const Student &s2)
+{
+    return s1.calculate_the_avg() > s2.calculate_the_avg();
+}
+
+void StudentCatalog::show_best_students()
+{
+    int ten_percent_of_students =(int) ceil(catalog.get<4>().size()*0.1f);
+    int counter = 0;
+
+
+    auto ind = &catalog.get<3>();
+
+        std::vector<boost::reference_wrapper<Student const> > temporary(ind->begin(),ind->end());
+
+        std::sort(temporary.begin(),temporary.end(),CompareAVG);
+
+        for(Student const& e: temporary)
+        {   counter++;
+            e.show();
+            std::cout<<"Srednia :"<<e.calculate_the_avg()<<std::endl;
+            if(counter==ten_percent_of_students)
+                break;
+        }
+
+
+}
+
 bool myOldSort(const Student &s1, const Student &s2)
 {
     std::string pesel_1 = s1.pesel();
@@ -401,11 +425,10 @@ void StudentCatalog::generate_emails()
     }
 }
 
-template<typename T>
 int StudentCatalog::count_students_with_avr_above_4_0()
 {
 //    bool is_greater_than_4_0(T number){return if(number > 4.0f);}
-    random_type &grades_index = catalog.get<7>();
+    index_type &grades_index = catalog.get<4>();
 
     int how_many = boost::range::count_if(grades_index, []( const Student& student){
         return (student.calculate_the_avg() > 4.0f);

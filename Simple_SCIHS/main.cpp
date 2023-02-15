@@ -99,6 +99,7 @@ int main()
     std::cout<<"Odczyt z pliku 3"<<std::endl;
     cat3.import_from_file();
     cat3.show();
+    cat3.show_students_with_their_avr();
 
     std::cout<<"All students 24-26"<<std::endl;
     cat3.show_all_students_btw_24_and_26_yor();
@@ -110,12 +111,15 @@ int main()
     cat3.show_all_ppl_from_speficic_town("Lubdyn");
 
     cat3.show_students_with_their_avr();
-//    cat3.count_students_with_avr_above_4_0();
+    cat3.count_students_with_avr_above_4_0();
 
     cat3.show_students_with_their_grades();
+    std::cout<<"10% of best students"<<std::endl;
+    cat3.show_best_students();
 
-    // pozostalo policzenie ile jest studentow ze srednia powyzej 4.0 ( f szablonowa)
-    // wyswietlanie 10% studentow z najwyzsza srednia
+    // pozostalo policzenie ile jest studentow ze srednia powyzej 4.0 ( f szablonowa)?
+
+    // cos z datami z pesel
 
     return 0;
 }

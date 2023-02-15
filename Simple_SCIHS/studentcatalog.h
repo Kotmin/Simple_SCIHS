@@ -23,6 +23,9 @@
 #include<fstream>
 
 
+#include<math.h>
+
+
 typedef std::tuple<std::string,std::string,std::string,std::string,std::string> krotka;
 
 namespace bmi = boost::multi_index;
@@ -99,7 +102,7 @@ public:
     void show_all_students_btw_24_and_26_yor();
     void show_students_with_their_grades();
     void show_students_with_their_avr(); //empty
-    void show_best_students();
+    void show_best_students(); // best 10 %
 
     void sort_by_age();
     void sort_by_surname();
@@ -107,7 +110,7 @@ public:
 
     void generate_emails();
 // przydalaby sie funkcja ktora nam na biezaco zrobi slownik index - srednia, ze dynamicznie
-    template <typename T>
+
     int count_students_with_avr_above_4_0();
     int count_double_barreleed_surname();
 };

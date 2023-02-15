@@ -92,7 +92,7 @@ std::string Validator::extract_date_from_pesel(std::string pesel)
             century=20;
         }
 
-        if(month<12)
+        if(month<10)
             output+="0";
 
         output+=std::to_string(month);
