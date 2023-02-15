@@ -126,10 +126,13 @@ int main()
     std::cout<<"All students with foreign numbers"<<std::endl;
     cat3.show_all_ppl_from_speficic_town("Lubdyn");
 
+    cat3.show_students_with_their_avr();
+//    cat3.count_students_with_avr_above_4_0();
+
+    cat3.show_students_with_their_grades();
 
     // pozostalo policzenie ile jest studentow ze srednia powyzej 4.0 ( f szablonowa)
     // sprawdzenie tego importu i eksportu (popros o opinie niezaleznego eksperta)
-    // dodaj do showa pozostale informacje o studentach
     // wyswietlanie 10% studentow z najwyzsza srednia
 
     return 0;

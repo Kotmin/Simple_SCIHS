@@ -177,7 +177,6 @@ void StudentCatalog::show()
     for(auto it = catalog.get<0>().begin(); it != catalog.get<0>().end();++it)
     {
         it->show();
-//        std::cout<<"num\n";
     }
 
 //    for(auto i=0; i != catalog.size();i++)
@@ -278,6 +277,25 @@ void StudentCatalog::show_all_students_btw_24_and_26_yor()
         if(isInRange24_26(*it))
             it->show();
 
+}
+
+void StudentCatalog::show_students_with_their_grades()
+{
+    for(auto it = catalog.get<0>().begin(); it != catalog.get<0>().end();++it)
+    {
+        std::cout<<it->index()<<"\t";
+        it->show_grades();
+        std::cout<<std::endl;
+    }
+
+}
+
+void StudentCatalog::show_students_with_their_avr()
+{
+    for(auto it = catalog.get<0>().begin(); it != catalog.get<0>().end();++it)
+    {
+        std::cout<<it->index()<<"\t"<<std::to_string(it->calculate_the_avg())<<std::endl;
+    }
 }
 
 bool myOldSort(const Student &s1, const Student &s2)
@@ -403,7 +421,13 @@ template<typename T>
 int StudentCatalog::count_students_with_avr_above_4_0()
 {
 //    bool is_greater_than_4_0(T number){return if(number > 4.0f);}
+    random_type &grades_index = catalog.get<7>();
 
-    return 1;
+    int how_many = boost::range::count_if(grades_index, []( const Student& student){
+        return (student.calculate_the_avg() > 4.0f);
+    });
+
+    std::cout<<"Mamy "<<how_many<<" studentow ze srednia powyzej 4.0"<<std::endl;
+    return how_many;
 
 }

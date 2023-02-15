@@ -93,9 +93,11 @@ public:
 
 
     void show();
-    void show_all_ppl_from_speficic_town(std::string town); //empty
+    void show_all_ppl_from_speficic_town(std::string town);
     void show_all_pll_with_foreign_ph_numbers();
-    void show_all_students_btw_24_and_26_yor(); //how to extract data from it?
+    void show_all_students_btw_24_and_26_yor();
+    void show_students_with_their_grades();
+    void show_students_with_their_avr(); //empty
 
     void sort_by_age();
     void sort_by_surname();
@@ -104,7 +106,7 @@ public:
     void generate_emails();
 // przydalaby sie funkcja ktora nam na biezaco zrobi slownik index - srednia, ze dynamicznie
     template <typename T>
-    int count_students_with_avr_above_4_0(); //empty
+    int count_students_with_avr_above_4_0();
     int count_double_barreleed_surname();
 };
 

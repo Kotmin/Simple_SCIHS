@@ -70,14 +70,14 @@ Student::Student(std::string name, std::string surname, std::tuple<std::string, 
 void Student::show() const
 {
     std::cout<<this->index()<<" "<<this->name()<<" "<< this->surname()<<" "<<this->email()<<
-            " "<<this->pesel()<<std::endl;
+            " "<<this->pesel()<<" "<<this->address_to_str()<<" "<< this->ph_number()<<std::endl;
 
 }
 
-void Student::show_grades()
+void Student::show_grades() const
 {
     for(auto& i: _grades)
-        std::cout<<i<<" ";
+        std::cout<<std::to_string(i)<<" ";
     std::cout<<std::endl;
 
 }
@@ -101,7 +101,7 @@ std::string Student::address_to_str() const
 //}
 //}
 
-float Student::calculate_the_avg() // without wages, just simple avg value
+float Student::calculate_the_avg() const // without wages, just simple avg value
 {   int len_of_vector = this->_grades.size();
     float sum=0.0;
     for(auto& i: _grades)

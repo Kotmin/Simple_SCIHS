@@ -46,7 +46,7 @@ public:
             ,std::string pesel,std::string index, std::string email,std::string phone_num,std::vector<float> grades);
 
     void show() const;
-    void show_grades();
+    void show_grades() const;
     template<typename T>
     void show_grades(std::vector<T> const &container);
 
@@ -81,7 +81,7 @@ public:
 
     std::vector<float> const &grades() const {return _grades;}
 
-    float calculate_the_avg();
+    float calculate_the_avg() const;
     std::string generate_email();
     std::string ret_grades() const;
 
