@@ -103,19 +103,22 @@ int main()
     std::cout<<"Odczyt z pliku 2"<<std::endl;
     cat2.import_from_file(); // nie wczytalo dodatkowych
     // jak zapisze z łapki to ignoruje, jak wczytam na czysto to jest
-    cat2.add("Tony","Stark",tup5,"00242207291",
-             "542542","corp@email.com","+01283573454");
+//    cat2.add("Tony","Stark",tup5,"02242207291",
+//             "542542","corp@email.com","+01283573454");
 
 //     cat.add("Wieso","Szabrownik",tup2,"81121305359","564521","bemowo@mejl.pl","+48 124873555",ocenki);
 
 
-    cat2.show();
-    cat2.export_to_file();
+//    cat2.show();
+//    cat2.export_to_file();
 
     StudentCatalog cat3;
     std::cout<<"Odczyt z pliku 3"<<std::endl;
     cat3.import_from_file();
     cat3.show();
+
+    std::cout<<"All students 24-26"<<std::endl;
+    cat3.show_all_students_btw_24_and_26_yor();
 
 
 
