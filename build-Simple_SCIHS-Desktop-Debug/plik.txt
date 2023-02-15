@@ -1,5 +1,5 @@
 Adam;Wielysz - Abroam;Downing st.,3a,14,20-508,Cajlon,;02251305359;554429;mymail@mejl.pl;+48124873556;;
-Wilhelm;Zdobywca Radom;Downing st.,3a,14,20-508,Lubdyn,;97121505349;554521;hb@mejl.pl;+48124876556;;
-Wieso;Szabrownik;Downing st.,3a,14,20-508,Alzacja,;81121305359;564521;bemowo@mejl.pl;+48124873555;;
-Janko;Muzykant - Wierszolleta;Downing st.,3a,14,20-508,Bemowo,;82121335359;564522;flet@mejl.pl;+48224873555;;
+Wilhelm;Zdobywca Radom;Downing st.,3a,14,20-508,Lubdyn,;97121505349;554521;hb@mejl.pl;124876556;;
+Wieso;Szabrownik;Downing st.,3a,14,20-508,Alzacja,;81121305359;564521;bemowo@mejl.pl;0048124873555;;
+Janko;Muzykant - Wierszolleta;Downing st.,3a,14,20-508,Bemowo,;82121335359;564522;flet@mejl.pl;+47224873555;;
 Tony;Stark;3rd,2,,20-101,California,;02242207291;542542;corp@email.com;+01283573454;;

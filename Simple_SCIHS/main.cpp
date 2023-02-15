@@ -120,6 +120,9 @@ int main()
     std::cout<<"All students 24-26"<<std::endl;
     cat3.show_all_students_btw_24_and_26_yor();
 
+    std::cout<<"All students with foreign numbers"<<std::endl;
+    cat3.show_all_pll_with_foreign_ph_numbers();
+
 
 
     return 0;

@@ -188,6 +188,28 @@ void StudentCatalog::show()
 
 }
 
+bool isForeignNumber(const Student &s1){
+    std::string number = s1.ph_number();
+
+    if(number.length()==9)
+        return false;
+    if(number.length()==10 && number.substr(0,0)=="0")
+        return false;
+    if(number.length()==13 && number.substr(0,4)=="0048")
+        return false;
+    std::regex re(".48[0-9]{9}");
+    if(regex_match(number,re))
+        return false;
+    return true;
+}
+
+void StudentCatalog::show_all_pll_with_foreign_ph_numbers()
+{
+    for(ph_number_type::iterator it=catalog.get<6>().begin(); it !=catalog.get<6>().end();++it)
+        if(isForeignNumber(*it))
+            it->show();
+}
+
 
 
 //void StudentCatalog::show_all_ppl_from_speficic_town(std::string town)
