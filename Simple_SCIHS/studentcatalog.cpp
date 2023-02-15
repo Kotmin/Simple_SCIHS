@@ -98,7 +98,6 @@ void StudentCatalog::import_from_file(std::string path)
     std::ifstream fileIf;
     fileIf.open(path);
     std::string line,tmp;
-    size_t pos =0;
 
     std::vector<std::string> temp;
     std::vector<std::string> temp_address;
@@ -106,62 +105,40 @@ void StudentCatalog::import_from_file(std::string path)
     std::string delimiter =";";
 
     try {
-
-    while (getline(fileIf,line)) {
-        delimiter=";";
-
-        while((pos = line.find(delimiter)) != std::string::npos){
-            temp.push_back(line.substr(0,pos));
-            line.erase(0,pos + delimiter.length());
-        }
-        //
-        for(auto& i: temp) //just for testing
-            std::cout<<i<<" ";
-
-        //
-
-        //addres part
-        delimiter=",";
-        while((pos = temp[2].find(delimiter)) != std::string::npos){
-            temp_address.push_back(temp[2].substr(0,pos));
-            temp[2].erase(0,pos + delimiter.length());
-        }
-
-//                for(auto& i: temp_address) //just for testing
-//                    std::cout<<i<<" ";
-//           std::cout<<std::endl;
-
-        krotka hook = std::make_tuple(temp_address[0],temp_address[1],temp_address[2],temp_address[3],
-                temp_address[4]);
-        std::cout<<std::endl<<" Size :"<< temp.size()<<std::endl;
-//        std::cout<<std::endl<<" Size :"<< temp[8]<<std::endl;
-        if(temp.size()==8) //if line contains grades
-        {
-            delimiter=",";
-            while((pos = temp[7].find(delimiter)) != std::string::npos){
-                temp_grades.push_back(std::stof(temp[7].substr(0,pos)));
-                temp[7].erase(0,pos + delimiter.length());
+        while(getline(fileIf, line)){
+            std::stringstream ss(line);
+            while(getline(ss, tmp, ';')){
+                temp.push_back(tmp);
             }
+
+            // parse address
+            std::stringstream ssAddress(temp[2]);
+            while(getline(ssAddress, tmp, ',')){
+                temp_address.push_back(tmp);
+            }
+            krotka hook = std::make_tuple(temp_address[0],temp_address[1],temp_address[2],temp_address[3],
+                            temp_address[4]);
+
+            // parse grades
+            std::stringstream ssGrades(temp[7]);
+            while(getline(ssGrades, tmp, ','))
+                temp_grades.push_back(std::stof(tmp));
+
             Validator::validate_grades(temp_grades);
+            
+            // add student
+            if(temp_grades.empty())
+                this->add(temp[0],temp[1],hook,temp[3],temp[4],temp[5],temp[6],std::vector<float>());
+            else
+                this->add(temp[0],temp[1],hook,temp[3],temp[4],temp[5],temp[6],temp_grades);
+
+            temp_grades.clear();
+            temp_address.clear();
+            temp.clear();
         }
-
-        this->add(temp[0],temp[1],hook,temp[3],temp[4],temp[5],temp[6],temp_grades);
-        for(auto& i: temp) //just for testing
-            std::cout<<i<<" ";
-
-        std::cout<<std::endl;
-
-        temp.clear();
-        temp_grades.clear();
-        temp_address.clear();
-
-
-//        std::cout<<line<<std::endl;
+    } catch (const char* msg) {
+        std::cerr << msg << std::endl;
     }
-
-}  catch (const char* msg) {
-    std::cerr << msg << std::endl;
-}
     fileIf.close();
 }
 
