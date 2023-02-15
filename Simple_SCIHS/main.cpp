@@ -123,6 +123,10 @@ int main()
     std::cout<<"All students with foreign numbers"<<std::endl;
     cat3.show_all_pll_with_foreign_ph_numbers();
 
+    std::cout<<"All students with foreign numbers"<<std::endl;
+    cat3.show_all_ppl_from_speficic_town("Lubdyn");
+
+
 
 
     return 0;

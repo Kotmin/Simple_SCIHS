@@ -188,6 +188,20 @@ void StudentCatalog::show()
 
 }
 
+bool isFromSpecificTown(const Student &s1,std::string town){
+    krotka adress = s1.address();
+
+    std::string town_to_compare = std::get<4>(adress);
+    return !(town.compare(town_to_compare));
+}
+
+void StudentCatalog::show_all_ppl_from_speficic_town(std::string town)
+{
+    for(address_type::iterator it=catalog.get<2>().begin(); it !=catalog.get<2>().end();++it)
+        if(isFromSpecificTown(*it,town))
+            it->show();
+}
+
 bool isForeignNumber(const Student &s1){
     std::string number = s1.ph_number();
 
