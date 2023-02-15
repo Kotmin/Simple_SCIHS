@@ -114,6 +114,12 @@ void StudentCatalog::import_from_file(std::string path)
             temp.push_back(line.substr(0,pos));
             line.erase(0,pos + delimiter.length());
         }
+        //
+        for(auto& i: temp) //just for testing
+            std::cout<<i<<" ";
+
+        //
+
         //addres part
         delimiter=",";
         while((pos = temp[2].find(delimiter)) != std::string::npos){
@@ -121,28 +127,29 @@ void StudentCatalog::import_from_file(std::string path)
             temp[2].erase(0,pos + delimiter.length());
         }
 
-                for(auto& i: temp_address) //just for testing
-                    std::cout<<i<<" ";
-           std::cout<<std::endl;
+//                for(auto& i: temp_address) //just for testing
+//                    std::cout<<i<<" ";
+//           std::cout<<std::endl;
 
         krotka hook = std::make_tuple(temp_address[0],temp_address[1],temp_address[2],temp_address[3],
                 temp_address[4]);
-
-        if(temp.size()==7) //if line contains grades
+        std::cout<<std::endl<<" Size :"<< temp.size()<<std::endl;
+//        std::cout<<std::endl<<" Size :"<< temp[8]<<std::endl;
+        if(temp.size()==8) //if line contains grades
         {
             delimiter=",";
-            while((pos = temp[6].find(delimiter)) != std::string::npos){
-                temp_grades.push_back(std::stof(temp[6].substr(0,pos)));
-                temp[6].erase(0,pos + delimiter.length());
+            while((pos = temp[7].find(delimiter)) != std::string::npos){
+                temp_grades.push_back(std::stof(temp[7].substr(0,pos)));
+                temp[7].erase(0,pos + delimiter.length());
             }
             Validator::validate_grades(temp_grades);
         }
 
         this->add(temp[0],temp[1],hook,temp[3],temp[4],temp[5],temp[6],temp_grades);
-//        for(auto& i: temp) //just for testing
-//            std::cout<<i<<" ";
+        for(auto& i: temp) //just for testing
+            std::cout<<i<<" ";
 
-//        std::cout<<std::endl;
+        std::cout<<std::endl;
 
         temp.clear();
         temp_grades.clear();

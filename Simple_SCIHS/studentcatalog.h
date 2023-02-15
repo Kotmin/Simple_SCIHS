@@ -98,6 +98,7 @@ public:
     void show_all_students_btw_24_and_26_yor();
     void show_students_with_their_grades();
     void show_students_with_their_avr(); //empty
+    void show_best_students();
 
     void sort_by_age();
     void sort_by_surname();

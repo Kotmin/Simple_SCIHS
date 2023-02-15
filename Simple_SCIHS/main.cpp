@@ -38,13 +38,6 @@ int main()
 //    Student s2("Tadeusz","Ramen",tup1,"02251305359","554421","mymail@mejl.pl","+48 124873556",ocenki);
     s1.show_grades(ocenki);
 
-//    std::cout<<"\n"<<Validator::validate_grades(ocenki)<<std::endl;
-//    ocenki.push_back(3.51);
-//    std::cout<<"\n"<<Validator::validate_grades(ocenki)<<std::endl;
-//    ocenki.push_back(3.6);
-//    std::cout<<"\n"<<Validator::validate_grades(ocenki)<<std::endl;
-
-    // dokladnie bedzie trzeba lab6 przejrzec i skrypcik
 
     Student s3("Tobiasz","Kanoe",tup1,"04311305359","554421","mymail@mejl.pl","+48 124873556");
     s3.add_grade(5);
@@ -80,17 +73,7 @@ int main()
     std::cout<<"Odczyt z pliku"<<std::endl;
 //    cat.import_from_file();
 
-
-//    std::cout<<s4.address_to_str()<<std::endl;
-
-    // został cały segment z wyświetlaniem
-
-    // 10% studentow z najwyzsza sredniaa
-
-    // zaimplementowac import
-
-    //not czajen dlaczego f szablonowa z count
-
+    cat.show_students_with_their_grades();
 
 //    std::tuple<std::string,std::string,std::string,std::string,std::string> tup4;
 //    tup4 = std::make_tuple("Downing st.","3a","14","20-508","Cajlon");
@@ -103,13 +86,13 @@ int main()
     std::cout<<"Odczyt z pliku 2"<<std::endl;
     cat2.import_from_file(); // nie wczytalo dodatkowych
     // jak zapisze z łapki to ignoruje, jak wczytam na czysto to jest
-//    cat2.add("Tony","Stark",tup5,"02242207291",
-//             "542542","corp@email.com","+01283573454");
+    cat2.add("Tony","Stark",tup5,"02242207291","542542","corp@email.com","+01283573454");
 
 //     cat.add("Wieso","Szabrownik",tup2,"81121305359","564521","bemowo@mejl.pl","+48 124873555",ocenki);
 
 
 //    cat2.show();
+//    cat2.show_students_with_their_grades();
 //    cat2.export_to_file();
 
     StudentCatalog cat3;
@@ -132,7 +115,6 @@ int main()
     cat3.show_students_with_their_grades();
 
     // pozostalo policzenie ile jest studentow ze srednia powyzej 4.0 ( f szablonowa)
-    // sprawdzenie tego importu i eksportu (popros o opinie niezaleznego eksperta)
     // wyswietlanie 10% studentow z najwyzsza srednia
 
     return 0;
